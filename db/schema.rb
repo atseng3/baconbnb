@@ -11,17 +11,71 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130814223245) do
+ActiveRecord::Schema.define(:version => 20131104010321) do
 
-  create_table "users", :force => true do |t|
-    t.string   "username",        :null => false
-    t.string   "password_digest", :null => false
-    t.datetime "created_at",      :null => false
-    t.datetime "updated_at",      :null => false
-    t.string   "session_token",   :null => false
+  create_table "amenities", :force => true do |t|
+    t.string   "name",       :null => false
+    t.integer  "pad_id",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
+  add_index "amenities", ["name"], :name => "index_amenities_on_name"
+
+  create_table "bookings", :force => true do |t|
+    t.integer  "booker_id",  :null => false
+    t.integer  "pad_id",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "details", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "value",      :null => false
+    t.integer  "pad_id",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "details", ["name"], :name => "index_details_on_name"
+  add_index "details", ["value"], :name => "index_details_on_value"
+
+  create_table "pad_amenities", :force => true do |t|
+    t.integer  "pad_id",     :null => false
+    t.integer  "amenity_id", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pad_details", :force => true do |t|
+    t.integer  "pad_id",     :null => false
+    t.integer  "detail_id",  :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  create_table "pads", :force => true do |t|
+    t.string   "name",        :null => false
+    t.text     "description", :null => false
+    t.string   "address",     :null => false
+    t.integer  "owner_id",    :null => false
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "pads", ["address"], :name => "index_pads_on_address"
+
+  create_table "users", :force => true do |t|
+    t.string   "f_name",          :null => false
+    t.string   "l_name",          :null => false
+    t.string   "email",           :null => false
+    t.string   "password_digest", :null => false
+    t.string   "session_token",   :null => false
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
+  add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["session_token"], :name => "index_users_on_session_token", :unique => true
-  add_index "users", ["username"], :name => "index_users_on_username", :unique => true
 
 end

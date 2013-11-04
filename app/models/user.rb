@@ -1,16 +1,16 @@
 class User < ActiveRecord::Base
-  attr_accessible :username, :password
+  attr_accessible :f_name, :l_name, :email, :password
   attr_reader :password
 
   validates :password_digest, :presence => { :message => "Password can't be blank" }
   validates :password, :length => { :minimum => 6, :allow_nil => true }
   validates :session_token, :presence => true
-  validates :username, :presence => true
+  validates :f_name, :l_name, :email, :presence => true
 
   after_initialize :ensure_session_token
 
-  def self.find_by_credentials(username, password)
-    user = User.find_by_username(username)
+  def self.find_by_credentials(email, password)
+    user = User.find_by_email(email)
 
     return nil if user.nil?
 

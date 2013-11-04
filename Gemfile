@@ -10,8 +10,15 @@ end
 
 group :development do
   gem 'pry-rails'
+  gem 'better_errors'
+  gem 'binding_of_caller'
 end
 
+gem 'meta_request'
+gem 'bootstrap-sass'
+gem 'debugger'
+gem 'backbone-on-rails'
 gem 'bcrypt-ruby', :require => 'bcrypt'
 gem 'jquery-rails'
 gem 'pg'
+gem 'gmaps4rails'
