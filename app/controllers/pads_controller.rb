@@ -3,4 +3,9 @@ class PadsController < ApplicationController
     @pads = Pad.all
     render :index
   end
+  
+  def show
+    @pad = Pad.find(params[:id])
+    render :show
+  end
 end

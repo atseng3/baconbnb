@@ -1,0 +1,14 @@
+<h2><%= @pad.name %></h2>
+<%= @pad.address %><br>
+
+<div style='width: 800px;'>
+	<div id="map" style='width: 800px; height: 400px;'>
+</div>
+
+<h4>Description</h4>
+<%= @pad.description %><br>
+
+<h4>Amenities</h4>
+<% @pad.amenities.each do |amenity| %><br>
+<%= amenity.name%><br>
+<% end %>

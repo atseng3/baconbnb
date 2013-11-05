@@ -33,7 +33,9 @@ Detail.create!(name: "Accomodates", value: "1", pad_id: 1)
 Detail.create!(name: "Check In", value: "4:00pm", pad_id: 1)
 Detail.create!(name: "Check Out", value: "12:00pm", pad_id: 1)
 Amenity.create!(name: "Smoking Allowed", pad_id: 1)
+PadAmenity.create!(pad_id: 1, amenity_id: 1)
 Amenity.create!(name: "Pets Allowed", pad_id: 1)
+PadAmenity.create!(pad_id: 1, amenity_id: 2)
 
 Pad.create!(name: "Quiet, private room in Marina SF", address: "Octavia Street, San Francisco, CA 94123, United States", owner_id: 1, description: "Gorgeous, comfortable room in Marina neighborhood apartment. Major downtown busline one block away. Walk to shops, dining, landmarks, parks and Fisherman's Wharf in minutes! Your stay includes a bottle of wine to welcome you, plus most amenities (including towels, hair dryer, travel books and maps). WiFi/cable/flatscreen tv.
 
@@ -48,5 +50,8 @@ Detail.create!(name: "Accomodates", value: "2", pad_id: 2)
 Detail.create!(name: "Check In", value: "3:00pm", pad_id: 2)
 Detail.create!(name: "Check Out", value: "12:00pm", pad_id: 2)
 Amenity.create!(name: "Smoking Allowed", pad_id: 2)
+PadAmenity.create!(pad_id: 2, amenity_id: 3)
 Amenity.create!(name: "Pets Allowed", pad_id: 2)
+PadAmenity.create!(pad_id: 2, amenity_id: 4)
 Amenity.create!(name: "TV", pad_id: 2)
+PadAmenity.create!(pad_id: 2, amenity_id: 5)

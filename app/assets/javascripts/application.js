@@ -12,4 +12,35 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.serializeJSON
+//= require underscore
+//= require gmaps/google
+//= require bootstrap
+//= require gmaps/google
+//= require backbone
+//= require baconbnb
+//= require_tree ../templates
+//= require_tree ./models
+//= require_tree ./collections
+//= require_tree ./views
+//= require_tree ./routers
 //= require_tree .
+
+
+handler = Gmaps.build('Google');
+handler.buildMap({ provide: {}, internal: {id: 'map'}}, function () {
+	markers = handler.addMarkers([
+		{
+			"lat": 0,
+			"lng": 0, 
+			"picture": {
+				"url": "https://addons.cdn.mozilla.net/img/uploads/addon_icons/13/13028-64.png",
+				"width": 36,
+				"height": 36
+			},
+			"infowindow": "hello!"
+		}
+	]);
+	handler.bounds.extendWith(markers);
+	handler.fitMapToBounds();
+});
