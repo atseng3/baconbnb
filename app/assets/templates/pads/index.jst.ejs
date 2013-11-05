@@ -1,0 +1,5 @@
+<ul>
+	<% pads.each(function(pad) { %>
+	<li><a href="#pads/<%= pad.id %>"><%= pad.escape("name") %><br></li>
+	<% }); %>
+</ul>

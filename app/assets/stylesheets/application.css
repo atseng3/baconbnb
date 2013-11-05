@@ -11,3 +11,25 @@
  *= require_self
  *= require_tree .
  */
+
+.sidebar {
+	float: left;
+}
+
+.content {
+	float: left;
+}
+
+.swap {
+	width: 500px; 
+	height: 500px;
+}
+
+.desc-amen {
+	width: 500px;
+	height: 500px;
+}
+
+.description {
+	display: inline;
+}

@@ -1,8 +1,17 @@
 # Baconbnb
+- users -- signup/signin/signout -- use devise?
+- omniauth -- allow users to signin via facebook
 
-* [app/models/user.rb](./app/models/user.rb)
-* [app/controllers/sessions_controller.rb](./app/controllers/sessions_controller.rb)
-* [app/controllers/users_controller.rb](./app/controllers/users_controller.rb)
-* [app/helpers/sessions_helper.rb](./app/helpers/sessions_helper.rb)
-* [app/views/sessions/new.html.erb](./app/views/sessions/new.html.erb)
-* [app/views/users/_form.html.erb](./app/views/users/_form.html.erb)
+- pads -- amenities/
+- pads -- listing a space
+- booking -- users can book a pad for dates
+
+- neighborhood -- pads belongs_to neighborhoods
+
+- search -- search on address/checkin/checkout/#guests
+- street view -- on show page
+- map -- pads index/pad show
+- pics -- list pads with pics
+
+- reviews
+- likes

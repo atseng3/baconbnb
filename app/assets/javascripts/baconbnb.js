@@ -4,7 +4,8 @@ window.Baconbnb = {
   Views: {},
   Routers: {},
   initialize: function() {
-		Baconbnb.pads = JSON.parse($("#bootstrapped_pads_json").html());
+		var parsed_pads = JSON.parse($("#bootstrapped_pads_json").html());
+		Baconbnb.pads = new Baconbnb.Collections.Pads(parsed_pads.pads, { parse: true });
     new Baconbnb.AppRouter();
 		Backbone.history.start();
   }
