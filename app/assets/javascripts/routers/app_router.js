@@ -21,6 +21,16 @@ Baconbnb.AppRouter = Backbone.Router.extend({
 		});
 		// this._swapView(indexView);
 		$(".content").html(indexView.render().$el);
+		this.renderMap();
+	},
+	
+	renderMap: function () {
+		handler = Gmaps.build('Google');
+		handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+		  markers = handler.addMarkers( Baconbnb.pads.pluck("gmaps_hash") );
+		  handler.bounds.extendWith(markers);
+		  handler.fitMapToBounds();
+		}); 
 	},
 	
 	// showSearchResults: function (location) {

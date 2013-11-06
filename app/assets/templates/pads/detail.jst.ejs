@@ -1,26 +1,54 @@
-<h2><%= pad.escape("name") %></h2>
-<b><%= pad.escape("room_type") %></b> ~ <%= pad.escape("address") %>
+<div class="pad-page">
+	<div class="main-detail">
+		<h1><%= pad.escape("name") %></h1>
+		<b><%= pad.escape("room_type") %></b> ~ <%= pad.escape("address") %>
 
-<div class="visual">
-	<div id="visualTabs" class="tabs">
-		<div class="tab" id="photos"><b>Photos</b></div>
-		<div class="tab" id="maps"><b>Maps</b></div>
-		<div class="tab" id="street-view"><b>Street View</b></div>
-		<div class="tab" id="calendar"><b>Calendar</b></div>
+		<div class="visual">
+			<div id="visualTabs" class="tabs nav nav-tabs">
+				<div class="tab" id="photos"><b>Photos</b></div>
+				<div class="tab" id="maps"><b>Maps</b></div>
+				<div class="tab" id="street-view"><b>Street View</b></div>
+				<div class="tab" id="calendar"><b>Calendar</b></div>
+			</div>
+	
+			<div id="visualContent">
+			</div>
+		</div>
+
+		<div class="details">
+			<div id="detailTabs" class="tabs nav nav-tabs">
+				<div class="tab" id="description"><b>Description</b></div>
+				<div class="tab" id="amenities"><b>Amenities</b></div>
+			</div>
+	
+			<div id="detailContent">
+			</div>
+		</div>
 	</div>
 	
-	<div id="visualContent">
+	<div class="side-detail">
+		<div class="book">From<br>$79</div><br>
+		<input 
+			type="text" 
+			name="search[check_in]"
+			placeholder="Check in">
+
+		<input 
+			type="text" 
+			name="search[check_out]"
+			placeholder="Check out">
+
+		<input 
+			type="text" 
+			name="search[num_guests]"
+			placeholder="1 Guest">
+			
+		<button type="submit" class="btn">Book</button>
+		<div class="owner">
+		Listed by: Bruce Bowen<br>
+		Response Rate 100%<br>
+		Response Time within a few hours<br>
+		Calendar Updated a week ago<br>
+		</div>
 	</div>
 </div>
-
-<div class="details">
-	<div id="detailTabs" class="tabs">
-		<div class="tab" id="description"><b>Description</b></div>
-		<div class="tab" id="amenities"><b>Amenities</b></div>
-	</div>
-	
-	<div id="detailContent">
-	</div>
-</div>
-
-<div class="book">From<br>$79</div>

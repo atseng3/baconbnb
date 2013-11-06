@@ -22,9 +22,86 @@
 }
 
 .jumbotron {
-	background-color: gray;
+	background: -webkit-linear-gradient(left, #a90329 14%,#6d0019 100%); 
+	color: white;
+//	background-color: #B4045F;
+	width: 100%;
+	height: 500px;
+}
+
+.main-search {
+	position: absolute;
+	margin-left: 200px;
+	margin-top: 100px;
+	margin-bottom: 10px;
+}
+
+.neighborhoods {
 	width: 100%;
 	height: 100%;
+}
+
+.sub-neighborhoods {
+	margin-left: auto;
+	margin-right: auto;
+	padding: 10px;
+	font-size: 300%;
+	width: 450px;
+	height: 450px;
+	float: left;
+	border: solid 1px black;
+}
+
+.sidebar-left {
+	float: left;
+}
+
+.sidebar-right {
+	float: left;
+	.pad-icon {
+		font-size: 140%;
+		float: left;
+		margin-left: 50px;
+		margin-right: 50px;
+		margin-top: 100px;
+		margin-bottom: 100px;
+		width: 300px;
+		height: 300px;
+		border: dotted 5px black;
+	}
+}
+
+.visual .tab {
+	float: left;
+	margin-left: 10px;
+}
+
+.details .tab {
+	float: left;
+	margin-left: 10px;
+}
+
+.pad-page {
+	margin-left: 100px;
+	margin-right: 100px;
+	margin-top: 10px;
+	margin-bottom: 10px;
+	.main-detail {
+		float: left;
+		width: 800px;
+	}
+	.side-detail {
+		border: dotted 2px black;
+		float: left;
+		width: 300px;
+		height: 600px;
+	}
+}
+
+.book {
+	width: 100%;
+	font-size: 180%;
+	display: inline-block;
 }
 
 //#visualTabs {

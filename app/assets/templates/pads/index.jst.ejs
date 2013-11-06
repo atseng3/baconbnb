@@ -1,5 +1,11 @@
-<ul>
-	<% pads.each(function(pad) { %>
-	<li><a href="#pads/<%= pad.id %>"><%= pad.escape("name") %><br></li>
-	<% }); %>
-</ul>
+<div class="sidebar-left">
+	<div style='width: 600px;'>
+	  <div id="map" style='width: 600px; height: 700px;'></div>
+	</div>
+</div>
+
+<div class="sidebar-right">
+		<% pads.each(function(pad) { %>
+			<div class="pad-icon"><a href="#pads/<%= pad.id %>"><%= pad.escape("name") %><br></div>
+		<% }); %>
+</div>
