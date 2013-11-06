@@ -45,6 +45,6 @@ class Pad < ActiveRecord::Base
   end
 
   def as_json(options)
-    super(:include => [:amenities], :methods => [:gmaps_hash])
+    super(:include => [:amenities, :owner], :methods => [:gmaps_hash])
   end
 end

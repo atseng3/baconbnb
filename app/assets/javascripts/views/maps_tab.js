@@ -9,6 +9,7 @@ Baconbnb.Views.MapsTab = Backbone.View.extend({
 		var that = this;
 		handler = Gmaps.build('Google');
 		handler.buildMap({ provider: { maxZoom: 17 }, internal: {id: 'map'}}, function(){
+			// alert(that.pad.get("gmaps_hash").name);
 		  markers = handler.addMarkers( [that.pad.get("gmaps_hash")] );
 		  handler.bounds.extendWith(markers);
 		  handler.fitMapToBounds();

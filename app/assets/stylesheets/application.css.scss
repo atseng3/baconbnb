@@ -71,14 +71,13 @@
 	}
 }
 
-.visual .tab {
-	float: left;
-	margin-left: 10px;
+.col-md-2 {
+	color: blue;
+	border: solid 1px black;
 }
 
-.details .tab {
-	float: left;
-	margin-left: 10px;
+.value {
+	text-align: right;
 }
 
 .pad-page {

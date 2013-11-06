@@ -11,12 +11,15 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 	
 	openTab: function (event) {
 		var el = $(event.currentTarget);
+		el.parent().children().removeClass("active");
 		if (el.parent().attr("id") == "detailTabs") {
 			var parentDiv = $("#detailContent");
 		} else {
 			var parentDiv = $("#visualContent");
 		}
 		parentDiv.children().detach();
+		
+		el.toggleClass("active");
 		
 		if(!this.tabViews[el.attr('id')]) {
 			this.tabViews[el.attr('id')] = this.createTabViewForEl(el);

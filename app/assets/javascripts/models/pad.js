@@ -8,9 +8,18 @@ Baconbnb.Models.Pad = Backbone.Model.extend({
 		return this._amenities;
 	},
 	
+	owner: function () {
+		if (!this._owner) {
+			this._owner = new Baconbnb.Models.Owner();
+		}
+		return this._owner;
+	},
+	
 	parse: function (serverAttributes, options) {
 		this.amenities().reset(serverAttributes.amenities);		
+		this.owner().set(serverAttributes.owner);
 		delete serverAttributes.amenities;
+		delete serverAttributes.owner;
 		return serverAttributes;
 	}
 });
