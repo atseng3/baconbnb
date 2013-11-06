@@ -1,32 +1,25 @@
 <h2><%= pad.escape("name") %></h2>
 <b><%= pad.escape("room_type") %></b> ~ <%= pad.escape("address") %>
 
+<div class="visual">
+	<div id="visualTabs" class="tabs">
+		<div class="tab" id="photos"><b>Photos</b></div>
+		<div class="tab" id="maps"><b>Maps</b></div>
+		<div class="tab" id="street-view"><b>Street View</b></div>
+		<div class="tab" id="calendar"><b>Calendar</b></div>
+	</div>
+	
+	<div id="visualContent">
+	</div>
+</div>
+
 <div class="details">
-	<div id="tabContainer" class="tabs">
-		<div class="tab" id="content1Tab"></div>
-		<div class="tab" id="content2Tab"></div>
-		<div class="tab" id="content3Tab"></div>				
+	<div id="detailTabs" class="tabs">
+		<div class="tab" id="description"><b>Description</b></div>
+		<div class="tab" id="amenities"><b>Amenities</b></div>
 	</div>
 	
-	<div id="contentContainer">
-	
-	</div>
-	
-	<div class="desc-amen">
-		<%= pad.escape("description") %>
-		<div class="description">
-			<ul>
-				<li><%= pad.escape("room_type") %></li>
-				<li><%= pad.escape("bed_type") %></li>			
-				<li><%= pad.escape("accomodates") %></li>
-				<li><%= pad.escape("bathrooms") %></li>
-				<li><%= pad.escape("min_stay") %></li>		
-				<li><%= pad.escape("country") %></li>
-				<li><%= pad.escape("city") %></li>
-				<li><%= pad.escape("neighborhood") %></li>
-				<li><%= pad.escape("cancellation") %></li>
-			</ul>
-		</div>
+	<div id="detailContent">
 	</div>
 </div>
 

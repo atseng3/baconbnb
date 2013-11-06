@@ -34,7 +34,17 @@ class Pad < ActiveRecord::Base
              :foreign_key => :neighborhood_id, 
              :class_name => 'Neighborhood'
   
+  def gmaps_hash
+    hash = Gmaps4rails.build_markers([self]) do |pad, marker|
+      marker.lat pad.latitude
+      marker.lng pad.longitude
+      marker.infowindow pad.name
+      marker.json({ name: pad.name })
+    end
+    hash[0]
+  end
+
   def as_json(options)
-    super(:include => [:amenities])
+    super(:include => [:amenities], :methods => [:gmaps_hash])
   end
 end

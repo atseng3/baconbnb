@@ -1,0 +1,33 @@
+the map should be here
+this doesnt work yet
+
+
+
+    @hash = Gmaps4rails.build_markers(@pads) do |pad, marker|
+      marker.lat pad.latitude
+      marker.lng pad.longitude
+      marker.infowindow pad.name
+      marker.json({ name: pad.name })
+
+
+<div class="map-view">
+	<div style='width: 800px;'>
+	  <div id="map" style='width: 600px; height: 600px;'></div>
+	</div>
+
+	<script type="text/javascript">
+  var hash = Gmaps4rails.build_markers(pads) do |pad, marker|
+    marker.lat pad.get("latitude")
+    marker.lng pad.get("longitude")
+    marker.infowindow pad.get("name")
+    marker.json({ name: pad.get("name") })
+	
+	
+	handler = Gmaps.build('Google');
+	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+	  markers = handler.addMarkers(<%=raw hash.to_json %>);
+	  handler.bounds.extendWith(markers);
+	  handler.fitMapToBounds();
+	});
+	</script>
+</div>

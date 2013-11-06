@@ -3,7 +3,6 @@ Baconbnb.Models.Pad = Backbone.Model.extend({
 	
 	amenities: function () {
 		if (!this._amenities) {
-			debugger
 			this._amenities = new Baconbnb.Collections.Amenities([], { pad: this });
 		}
 		return this._amenities;

@@ -1,0 +1,72 @@
+<% action = (pad.persisted? ? pad_url(pad) : pads_url) %>
+<% method = (pad.persisted? ? "put" : "post") %>
+<% message = (pad.persisted? ? "Update pad" : "List pad") %>
+
+<form action="<%= action %>" method="post">
+  <input
+     name="_method"
+     type="hidden"
+     value="<%= method %>">
+  <input
+     name="authenticity_token"
+     type="hidden"
+     value="<%= form_authenticity_token %>">
+
+  <label for="pad_name">Name</label>
+  <input
+     id="pad_name"
+     name="pad[name]"
+     type="text">
+  <br>
+
+	<label for="address">Address</label>
+	<input 
+		type="text" 
+		name="pad[address]" 
+		value="<%= pad.address %>" 
+		id="address">
+		
+	<input 
+		type="hidden" 
+		name="pad[owner_id]" 
+		value="">
+	
+	<label for="description">Description</label>
+	<textarea 
+		rows="4" 
+		cols="50" 
+		name="pad[description]" 
+		value="<%= pad.description %>" 
+		id="description"></textarea>
+		
+	<label for="room_type">Room Type</label>
+	<select>
+		<option value="Private Room">Private Room</option>
+		<option value="Shared Room">Shared Room</option>
+		<option value="Entire home/apt">Entire home/apt</option>					
+	</select>
+		
+	<label for="accomodates">Accomodates</label>
+	<select>
+		<option value="1">1</option>
+		<option value="2">2</option>
+		<option value="3">3</option>
+		<option value="4">4</option>
+		<option value="5">5</option>
+		<option value="6">6</option>
+		<option value="7">7</option>
+		<option value="8">8</option>
+		<option value="9">9</option>
+		<option value="10">10</option>
+		<option value="11">11</option>
+		<option value="12">12</option>
+		<option value="13">13</option>
+		<option value="14">14</option>
+		<option value="15">15</option>
+		<option value="16+">16+</option>
+	</select>
+		
+	<br>
+
+  <input type="submit" class="btn" value="<%= message %>">
+</form>
