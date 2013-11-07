@@ -2,16 +2,15 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
 	template: JST["pads/index"],
 	
 	events: {
-		"click .form_datetime": "invokeDatePicker",
-		"click #slider-range-main": "invokeSlider"
+		"click .form_datetime": "invokeDatePicker"
 	},
 	
 	invokeDatePicker: function (event) {
-    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
+    $(this.$el.find(".form_datetime")).datetimepicker({format: 'yyyy-mm-dd'});
 	},
 	
   invokeSlider: function(event) {
-    $("#slider-range-min").slider({
+    $(this.$el.find("#slider-range-min")).slider({
       range: "min",
       value: 37,
       min: 1,
@@ -28,6 +27,7 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
 			pads: this.collection
 		});
 		this.$el.html(renderedContent);
+		this.invokeSlider();
 		return this;
 	}
 });

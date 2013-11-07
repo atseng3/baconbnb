@@ -15,21 +15,22 @@ class UsersController < ApplicationController
 
     if @user.save
       self.current_user = @user
-      redirect_to user_url(@user)
+      redirect_to root_url
     else
-      render :json => @user.errors.full_messages
+      flash[:errors] = @user.errors.full_messages
+      redirect_to root_url
     end
   end
 
   def new
     @user = User.new
+    render :new
   end
 
   def show
     if params.include?(:id)
       @user = User.find(params[:id])
-    else
-      redirect_to user_url(current_user)
     end
+    redirect_to root_url
   end
 end

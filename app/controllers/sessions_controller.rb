@@ -1,5 +1,5 @@
 class SessionsController < ApplicationController
-  before_filter :require_no_current_user!, :only => [:create, :new]
+  # before_filter :require_no_current_user!, :only => [:create, :new]
   before_filter :require_current_user!, :only => [:destroy]
 
   def create
@@ -9,16 +9,17 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
-      render :json => "Credentials were wrong"
+      flash[:errors] = ["Credentials were wrong"]
+      redirect_to root_url
     else
       self.current_user = user
-      redirect_to user_url(user)
+      redirect_to root_url
     end
   end
 
   def destroy
     logout_current_user!
-    redirect_to new_session_url
+    redirect_to root_url
   end
 
   def new

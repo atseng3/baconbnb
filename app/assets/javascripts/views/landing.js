@@ -2,7 +2,19 @@ Baconbnb.Views.Landing = Backbone.View.extend({
 	template: JST["landing"],
 	
 	events: {
-		"submit form": "searchLocation"
+		"submit form": "searchLocation",
+		"submit .login-form": "logUserIn",
+		"click .signup-user": "signUserUp"
+	},
+	
+	signUserUp: function (event) {
+		event.preventDefault();
+		debugger
+	},
+	
+	logUserIn: function (event) {
+		event.preventDefault();
+		debugger
 	},
 	
 	searchLocation: function () {

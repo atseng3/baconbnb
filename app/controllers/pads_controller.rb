@@ -1,5 +1,5 @@
 class PadsController < ApplicationController
-  before_filter :require_current_user!
+  before_filter :require_current_user!, :only => [:create]
   
   def index
     @pads = Pad.all

@@ -12,6 +12,11 @@
  *= require_tree .
  */
 
+body {
+	background-color: #F5A9A9;
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
 .sidebar {
 	float: left;
 }
@@ -231,4 +236,30 @@ font-weight: bold;
 	padding: 10px;
 	border-radius: 2px;
 	box-shadow: 0 0 4px #efefef;
+}
+
+.btn.btn-primary.login-facebook {
+	width: 320px;
+	height: 40px;
+	font-size: 25px;
+	margin-bottom: 10px;
+}
+
+#slider-range-min {
+	width: 600px;
+}
+
+.price-search-box {
+	h6 {
+		width: 80px;
+	}
+	input {
+		margin-top: 6px;
+		width: 70px;
+	}
+	#slider-range-min {
+		margin-top: 8px;
+		display: inline-block;
+		width: 500px;
+	}
 }
