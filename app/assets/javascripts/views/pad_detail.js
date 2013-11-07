@@ -65,6 +65,7 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 	},
 	
 	render: function () {
+		
 		var renderedContent = this.template({
 			pad: this.model,
 			amenities: this.model.amenities

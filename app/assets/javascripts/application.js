@@ -17,6 +17,7 @@
 //= require gmaps/google
 //= require bootstrap
 //= require basiccalendar
+//= require bootstrap-datetimepicker
 //= require gmaps/google
 //= require backbone
 //= require baconbnb
