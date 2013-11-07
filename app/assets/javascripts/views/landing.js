@@ -7,7 +7,8 @@ Baconbnb.Views.Landing = Backbone.View.extend({
 	
 	searchLocation: function () {
 		event.preventDefault();
-		debugger
+		
+		Backbone.history.navigate("index", { trigger: true });
 	},
 	
 	render: function () {

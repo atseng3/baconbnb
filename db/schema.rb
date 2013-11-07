@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131105193052) do
+ActiveRecord::Schema.define(:version => 20131106194109) do
 
   create_table "amenities", :force => true do |t|
     t.string   "name",       :null => false
@@ -68,6 +68,16 @@ ActiveRecord::Schema.define(:version => 20131105193052) do
   end
 
   add_index "pads", ["address"], :name => "index_pads_on_address"
+
+  create_table "photos", :force => true do |t|
+    t.integer  "pad_id",             :null => false
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.datetime "created_at",         :null => false
+    t.datetime "updated_at",         :null => false
+  end
 
   create_table "users", :force => true do |t|
     t.string   "f_name",          :null => false

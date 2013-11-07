@@ -13,4 +13,10 @@ window.Baconbnb = {
 
 $(document).ready(function(){
   Baconbnb.initialize();
+	$(".guide").hover(function (){
+		$(this).stop().animate({"opacity": "0.7"}, "slow");
+	}, function (){
+		$(this).stop().animate({"opacity": "1"}, "flow");
+	});
 });
+

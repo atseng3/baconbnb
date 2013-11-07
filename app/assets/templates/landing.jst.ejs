@@ -1,41 +1,135 @@
-<div class="jumbotron">
-		<form role="search">
-			<div class="main-search">
-				<h1>Find a place to stay.</h1><br>
-				<h4>Rent from people in over 34,000 cities and 192 countries.</h4><br>
-				<input 
-					type="text" 
-					name="search[location]" 
-					placeholder="Where do you want to go?">
-		
-				<input 
-					type="date" 
-					name="search[check_in]"
-					placeholder="Check in">
-		
-				<input 
-					type="date" 
-					name="search[check_out]"
-					placeholder="Check out">
-		
-				<input 
-					type="number" 
-					name="search[num_guests]"
-					placeholder="1 Guest">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+  <!-- Indicators -->
+  <ol class="carousel-indicators">
+    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+		<li data-target="#carousel-example-generic" data-slide-to="3"></li>
+		<li data-target="#carousel-example-generic" data-slide-to="4"></li>
+		<li data-target="#carousel-example-generic" data-slide-to="5"></li>
+  </ol>
 
-				<button 
-					type="submit" 
-					class="btn btn-default">Search</button>
-			</div>
-		</form>
+
+	<form role="search">
+		<div class="main-search">
+			<h1>Find a place to stay.</h1><br>
+			<h4>Rent from people in over 34,000 cities and 192 countries.</h4><br>
+			
+			<input 
+				type="text" 
+				class="span3" 
+				style="margin: 0 auto;" 
+				data-provide="typeahead" 
+				data-items="4"
+			  data-source='["San Francisco, CA","New York, NY","Taipei, Taiwan","Sydney, Australia","Tokyo, Japan","Pigs"]' 				placeholder="Where do you want to go?">
+	
+			<input 
+				type="date" 
+				name="search[check_in]"
+				placeholder="Check in">
+	
+			<input 
+				type="date" 
+				name="search[check_out]"
+				placeholder="Check out">
+	
+			<input 
+				type="number" 
+				name="search[num_guests]"
+				placeholder="1 Guest">
+
+			<button 
+				type="submit" 
+				class="btn btn-default">Search</button>
+		</div>
+	</form>
+
+
+
+  <!-- Wrapper for slides -->
+  <div class="carousel-inner">	
+    <div class="item active">
+      <img src="/assets/cover-photo1.jpg">
+      <div class="carousel-caption">
+        Hey1
+      </div>
+    </div>
+    <div class="item">
+      <img src="/assets/cover-photo2.jpg">
+      <div class="carousel-caption">
+        Hey2
+      </div>
+    </div>
+    <div class="item">
+      <img src="/assets/cover-photo3.jpg">
+      <div class="carousel-caption">
+        Hey3
+      </div>
+    </div>
+    <div class="item">
+      <img src="/assets/cover-photo4.jpg">
+      <div class="carousel-caption">
+        Hey3
+      </div>
+    </div>
+    <div class="item">
+      <img src="/assets/cover-photo5.jpg">
+      <div class="carousel-caption">
+        Hey3
+      </div>
+    </div>
+    <div class="item">
+      <img src="/assets/cover-photo6.jpg">
+      <div class="carousel-caption">
+        Hey3
+      </div>
+    </div>
+    <div class="item">
+      <img src="/assets/cover-photo7.jpg">
+      <div class="carousel-caption">
+        Hey3
+      </div>
+    </div>
+    <div class="item">
+      <img src="/assets/cover-photo8.jpg">
+      <div class="carousel-caption">
+        Hey3
+      </div>
+    </div>
+    <div class="item">
+      <img src="/assets/cover-photo9.jpg">
+      <div class="carousel-caption">
+        Hey3
+      </div>
+    </div>
+  </div>
+
+  <!-- Controls -->
+  <a class="left carousel-control" href="#carousel-example-generic" data-slide="prev">
+    <span class="glyphicon glyphicon-chevron-left"></span>
+  </a>
+  <a class="right carousel-control" href="#carousel-example-generic" data-slide="next">
+    <span class="glyphicon glyphicon-chevron-right"></span>
+  </a>
+	
 </div>
 
 
 <div class="neighborhoods">
-<div class="sub-neighborhoods">San Francisco</div>
-<div class="sub-neighborhoods">New York</div>
-<div class="sub-neighborhoods">Tokyo</div>
-<div class="sub-neighborhoods">Sydney</div>
-<div class="sub-neighborhoods">Taipei</div>
-<div class="sub-neighborhoods">London</div>
+	<div class="page-header"><h2>..or find a Location</h2></div>
+	<div class="sub-neighborhoods"><img src="/assets/san_fran.jpg" class="guide"></div>
+	
+	<div class="sub-neighborhoods">
+		<div class="cities">New York</div>
+		<img src="/assets/new_york.jpg" class="guide">
+	</div>
+	
+	<div class="sub-neighborhoods">
+		<div class="cities">Sydney</div>
+		<img src="/assets/sydney.jpg" class="guide">
+	</div>
+	
+	<div class="sub-neighborhoods"><div class="cities">Taipei</div><img src="/assets/taipei.jpg" class="guide"></div>
+	<div class="sub-neighborhoods"><div class="cities">London</div><img src="/assets/london.jpg" class="guide"></div>
+	<div class="sub-neighborhoods"><div class="cities">Tokyo</div><img src="/assets/tokyo.jpg" class="guide"></div>
 </div>

@@ -1,57 +1,63 @@
-<div class="pad-page">
-	<div class="main-detail">
-		<h1><%= pad.escape("name") %></h1>
-		<b><%= pad.escape("room_type") %></b> ~ <%= pad.escape("address") %>
+<div class="row pagedetail container-fluid">
+  <div class="span8">
+		<div class="main-detail">
+			<h1><%= pad.escape("name") %></h1>
+			<b><%= pad.escape("room_type") %></b> ~ <%= pad.escape("address") %>
 		
-		<div class="visual">
-			<ul class="nav nav-tabs" id="visualTabs">
-			  <li class="tab" id="photos"><a>Photos</a></li>
-			  <li class="tab" id="maps"><a>Maps</a></li>
-			  <li class="tab" id="street-view"><a>Street View</a></li>
-			  <li class="tab" id="calendar"><a>Calendar</a></li>
-			</ul>
+			<div class="visual">
+				<ul class="nav nav-tabs" id="visualTabs">
+				  <li class="tab" id="photos"><a>Photos</a></li>
+				  <li class="tab" id="maps"><a>Maps</a></li>
+				  <li class="tab" id="street-view"><a>Street View</a></li>
+				  <li class="tab" id="calendar"><a>Calendar</a></li>
+				</ul>
 	
-			<div id="visualContent">
+				<div id="visualContent">
+				</div>
 			</div>
-		</div>
 
-		<div class="details">
-			<ul id="detailTabs" class="tabs nav nav-tabs">
-				<li class="tab" id="description"><a>Description</a></li>
-				<li class="tab" id="amenities"><a>Amenities</a></li>
-			</ul>
+			<div class="details">
+				<ul id="detailTabs" class="tabs nav nav-tabs">
+					<li class="tab" id="description"><a>Description</a></li>
+					<li class="tab" id="amenities"><a>Amenities</a></li>
+				</ul>
 	
-			<div id="detailContent">
+				<div id="detailContent">
+				</div>
 			</div>
 		</div>
 	</div>
-
+  
 	
-	
-	<div class="side-detail row">
-		<div class="book col-md-2">From<br>$79</div><br>
-		<input 
-			type="date" 
-			name="search[check_in]"
-			placeholder="Check in">
-
-		<input 
-			type="date" 
-			name="search[check_out]"
-			placeholder="Check out">
-
-		<input 
-			type="number" 
-			name="search[num_guests]"
-			placeholder="1 Guest">
+	<div class="span4 side">
+		<div class="side-detail">
+			<div class="book">
+				<label class="from">From</label><br>
+				<div class="price">$79</div><br>
+				<input 
+					type="date" 
+					name="search[check_in]"
+					placeholder="Check in">
 			
-		<button type="submit" class="btn">Book</button>
-		<div class="owner">
-		<% debugger %>
-		Listed by: <%= pad.owner().get("f_name") %> <%= pad.owner().get("l_name") %><br>
-		Response Rate: 100%<br>
-		Response Time: within a few hours<br>
-		Calendar Updated: a week ago<br>
+				<input 
+					type="date"
+					name="search[check_out]"
+					placeholder="Check out">
+			
+				<input 
+					type="number" 
+					name="search[num_guests]"
+					placeholder="1 Guest"><br>
+			
+				<button type="submit" class="btn btn-primary book-btn">BOOK</button>
+			</div>
+			
+			<div class="owner">
+				Listed by: <%= pad.owner().get("f_name") %> <%= pad.owner().get("l_name") %><br>
+				Response Rate: 100%<br>
+				Response Time: within a few hours<br>
+				Calendar Updated: a week ago<br>
+			</div>
 		</div>
 	</div>
 </div>

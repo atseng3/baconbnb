@@ -5,8 +5,6 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		"click .tab": "openTab"
 	},
 	
-	// el: $("#tabContainer"),
-	
 	tabViews: {},
 	
 	openTab: function (event) {

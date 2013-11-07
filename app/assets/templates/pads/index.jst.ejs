@@ -5,7 +5,12 @@
 </div>
 
 <div class="sidebar-right">
+	<div class="trip-search">TRIP</div>
+	<div class="room-type-search">ROOM TYPE</div>
+	<div class="price-search">PRICE</div>
+	<div class="pads-list">
 		<% pads.each(function(pad) { %>
 			<div class="pad-icon"><a href="#pads/<%= pad.id %>"><%= pad.escape("name") %><br></div>
 		<% }); %>
+	</div>
 </div>

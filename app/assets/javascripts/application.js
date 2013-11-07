@@ -16,6 +16,7 @@
 //= require underscore
 //= require gmaps/google
 //= require bootstrap
+//= require basiccalendar
 //= require gmaps/google
 //= require backbone
 //= require baconbnb

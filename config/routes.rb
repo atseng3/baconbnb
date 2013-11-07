@@ -4,6 +4,7 @@ Baconbnb::Application.routes.draw do
   
   resources :pads do 
     resources :amenities, :only => [:index]
+    resources :photos, :only => [:create, :new]
   end
   
   resources :amenities, :only => [:create]

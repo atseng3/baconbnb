@@ -1,5 +1,7 @@
-<ul>
-	<% amenities.each(function(amenity) { %>
-	<li><%= amenity.escape("name") %><br></li>
-	<% }); %>
-</ul>
+<% for (var i = 0; i < all_amens.length; i++) { %>
+	<% if (amenities.indexOf(all_amens[i]) != -1) { %>
+		<div class="amenity" style="color: green;"><span class="glyphicon glyphicon-check"></span><b><%= all_amens[i] %></b></div>
+	<% } else { %>
+		<div class="amenity"><%= all_amens[i] %></div>
+	<% } %>
+<% } %>

@@ -21,14 +21,6 @@
 	width: 100%;
 }
 
-.jumbotron {
-	background: -webkit-linear-gradient(left, #a90329 14%,#6d0019 100%); 
-	color: white;
-//	background-color: #B4045F;
-	width: 100%;
-	height: 500px;
-}
-
 .main-search {
 	position: absolute;
 	margin-left: 200px;
@@ -39,18 +31,24 @@
 .neighborhoods {
 	width: 100%;
 	height: 100%;
+	padding: 50px;
+	margin: auto;
 }
 
 .sub-neighborhoods {
-	margin-left: auto;
-	margin-right: auto;
-	padding: 10px;
+	margin: 20px;
 	font-size: 300%;
-	width: 450px;
-	height: 450px;
+	width: 400px;
+	height: 300px;
 	float: left;
-	border: solid 1px black;
+//	transition: opacity 0.3s linear;
+//	transition: background 0.3s linear;
 }
+
+//.sub-neighborhoods:hover {
+//	background: white;
+//	opacity: 0.4;
+//}
 
 .sidebar-left {
 	float: left;
@@ -71,65 +69,114 @@
 	}
 }
 
-.col-md-2 {
-	color: blue;
-	border: solid 1px black;
-}
-
 .value {
 	text-align: right;
 }
 
-.pad-page {
-	margin-left: 100px;
-	margin-right: 100px;
-	margin-top: 10px;
-	margin-bottom: 10px;
-	.main-detail {
-		float: left;
-		width: 800px;
-	}
-	.side-detail {
-		border: dotted 2px black;
-		float: left;
-		width: 300px;
-		height: 600px;
-	}
+.row.pagedetail {
+	margin-left: 80px;
+	margin-right: 80px;
 }
 
 .book {
-	width: 100%;
-	font-size: 180%;
+	padding: 20px 20px;
+	border: 1px solid #dbdbdb;
+	border-radius: 2px;
+	background-color: #fefefe;
+	margin-bottom: 10px;
+}
+
+.from {
+	font-size: 20px;
+}
+
+.price {
+	color: green;
+	font-size: 35px;
+	margin-bottom: 5px;
+}
+
+.book-btn {
+	width: 320px;
+	height: 50px;
+	font-size: 30px;
+}
+
+.owner {
+	padding: 20px 20px;
+	margin-top: 10px;
+	border: 1px solid #dbdbdb;
+	border-radius: 2px;
+	background-color: #fefefe;
+}
+
+.span8 {
+	display: block;
+	border: 1px solid #dbdbdb;
+	border-radius: 2px;
+	background-color: #fefefe;
+}
+
+.item {
+	position: absolute;
+	z-index: -1;
+}
+
+.main-search {
+	color: white;
+	position: absolute;
+	z-index: 1;
+}
+
+.amenity {
+	padding-left: 25px;
+	width: 200px;
 	display: inline-block;
 }
 
-//#visualTabs {
-//	list-style: none;
-//	margin: 0;
-//	padding: 0;
-//	line-height: 24px;
+.guide {
+	z-index: -1;
+}
+
+.cities {
+//	transition: color 0.3s linear;
+	position: absolute;
+	color: #dbdbdb;
+	margin-top: 86px;
+	padding-top: 50px;
+	z-index: 1;
+	text-align: center;
+	width: 400px;
+}
+
+//.cities:hover {
+//	color: #4aa3ff;
 //}
-//
-//#visualTabs li {
-//	margin: 0 10px;
-//	padding: 0 10px;
-//	border: 1px solid #AAA;
-//	background: #ECECEC;
-//	float: left;
-//}
-//
-//#detailTabs {
-//	text-align: center;
-//	list-style: none;
-//	margin: 0;
-//	padding: 0;
-//	line-height: 24px;
-//}
-//
-//#detailTabs li {
-//	margin: 0 10px;
-//	padding: 0 10px;
-//	border: 1px solid #AAA;
-//	background: #ECECEC;
-//	display: inline-block;
-//}
+
+.main {
+width:200px;
+border:1px solid black;
+}
+
+.month {
+background-color:black;
+font:bold 12px verdana;
+color:white;
+}
+
+.daysofweek {
+background-color:gray;
+font:bold 12px verdana;
+color:white;
+}
+
+.days {
+font-size: 12px;
+font-family:verdana;
+background-color: lightgray;
+padding: 2px;
+}
+
+.days #today{
+font-weight: bold;
+}
