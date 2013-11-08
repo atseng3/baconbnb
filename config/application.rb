@@ -58,5 +58,7 @@ module Baconbnb
 
     # Version of your assets, change this if you want to expire all your assets
     config.assets.version = '1.0'
+    
+    config.filepicker_rails.api_key = "Aek7mfC9SBmQy7xxM338qz"
   end
 end

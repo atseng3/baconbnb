@@ -18,14 +18,15 @@ class PadsController < ApplicationController
   
   def create
     @pad = Pad.new(params[:pad])
-    fail
-    # if @pad.save
-#       # render 'static_pages/root'
-#       redirect_to root_url
-#     else
-#       flash[:errors] = @pad.errors.full_messages
-#       # render :json => @pad.errors.full_messages, :status => :unprocessable_entity
-#       redirect_to root_url
-#     end
+    @pads = Pad.all
+    
+    if @pad.save
+      render 'static_pages/root'
+      # redirect_to root_url
+    else
+      flash[:errors] = @pad.errors.full_messages
+      # render :json => @pad.errors.full_messages, :status => :unprocessable_entity
+      redirect_to root_url
+    end
   end
 end

@@ -2,113 +2,66 @@
 <% method = (pad.persisted? ? "put" : "post") %>
 <% message = (pad.persisted? ? "Update pad" : "List pad") %>
 
-<form class="dropzone" id="photo_dropzone" action="<%= action %>" method="post" enctype="multipart/form-data">
-  <input
-     name="_method"
-     type="hidden"
-     value="<%= method %>">
-  <input
-     name="authenticity_token"
-     type="hidden"
-     value="<%= form_authenticity_token %>">
+	<%= form_for @pad do |f| %>
+	  <div>
+		  <label for="pad_name">Name</label>
+		  <input
+		     id="pad_name"
+		     name="pad[name]"
+		     type="text">
+		  <br>
 
-  <label for="pad_name">Name</label>
-  <input
-     id="pad_name"
-     name="pad[name]"
-     type="text">
-  <br>
-
-	<label for="address">Address</label>
-	<input 
-		type="text" 
-		name="pad[address]" 
-		value="<%= pad.address %>" 
-		id="address">
+			<label for="address">Address</label>
+			<input 
+				type="text" 
+				name="pad[address]" 
+				value="<%= pad.address %>" 
+				id="address">
 		
-	<input 
-		type="hidden" 
-		name="pad[owner_id]" 
-		value="">
+			<input 
+				type="hidden" 
+				name="pad[owner_id]" 
+				value="<%= current_user.id %>">
 	
-	<label for="description">Description</label>
-	<textarea 
-		rows="4" 
-		cols="50" 
-		name="pad[description]" 
-		value="<%= pad.description %>" 
-		id="description"></textarea>
+			<label for="description">Description</label>
+			<textarea 
+				rows="4" 
+				cols="50" 
+				name="pad[description]" 
+				value="<%= pad.description %>" 
+				id="description"></textarea>
 		
-	<label for="room_type">Room Type</label>
-	<select>
-		<option value="Private Room">Private Room</option>
-		<option value="Shared Room">Shared Room</option>
-		<option value="Entire home/apt">Entire home/apt</option>					
-	</select>
+			<label for="room_type">Room Type</label>
+			<select>
+				<option value="Private Room">Private Room</option>
+				<option value="Shared Room">Shared Room</option>
+				<option value="Entire home/apt">Entire home/apt</option>					
+			</select>
 		
-	<label for="accomodates">Accomodates</label>
-	<select>
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		<option value="11">11</option>
-		<option value="12">12</option>
-		<option value="13">13</option>
-		<option value="14">14</option>
-		<option value="15">15</option>
-		<option value="16+">16+</option>
-	</select>
+			<label for="accomodates">Accomodates</label>
+			<select>
+				<option value="1">1</option>
+				<option value="2">2</option>
+				<option value="3">3</option>
+				<option value="4">4</option>
+				<option value="5">5</option>
+				<option value="6">6</option>
+				<option value="7">7</option>
+				<option value="8">8</option>
+				<option value="9">9</option>
+				<option value="10">10</option>
+				<option value="11">11</option>
+				<option value="12">12</option>
+				<option value="13">13</option>
+				<option value="14">14</option>
+				<option value="15">15</option>
+				<option value="16+">16+</option>
+			</select>
 		
-	<br>
-	
-	<label for="pad_photos">Photos</label>
-	<div class="dropzone-previews"></div>
-
-  <button type="submit" class="btn"><%= message %></button>
-</form>
-
-<script>
-	Dropzone.options.photoDropzone = {
-		paramName: "pad[photos]",
-		addRemoveLinks: true,
-		acceptedFiles: ".jpeg, .gif, .png, .jpg",
-		uploadMultiple: true,
-		autoProcessQueue: false,
-	  init: function() {
-	    var myDropzone = this;
-
-	    // First change the button to actually tell Dropzone to process the queue.
-	    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
-	      // Make sure that the form isn't actually being sent.
-	      e.preventDefault();
-	      e.stopPropagation();
-	      myDropzone.processQueue();
-	    });
-
-	    // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
-	    // of the sending event because uploadMultiple is set to true.
-	    this.on("sendingmultiple", function() {
-	      // Gets triggered when the form is actually being sent.
-	      // Hide the success button or the complete form.
-				alert("sendingmultiple");
-	    });
-	    this.on("successmultiple", function(files, response) {
-	      // Gets triggered when the files have successfully been sent.
-	      // Redirect user or notify of success.
-				alert("successmultiple");
-	    });
-	    this.on("errormultiple", function(files, response) {
-	      // Gets triggered when there was an error sending the files.
-	      // Maybe show form again, and notify user of error
-				alert("errormultiple");
-	    });
-	  }
-	}
-</script>
+			<br>
+	    <%= f.label :filepicker_url, "Upload Photos of Your Pad:" %>
+	    <%= f.filepicker_field :filepicker_url, dragdrop: true %>
+	  </div>
+		
+	  <button type="submit" class="btn"><%= message %></button>
+	<% end %>

@@ -10,7 +10,7 @@ class User < ActiveRecord::Base
   after_initialize :ensure_session_token
   
   has_attached_file :profile_photo, :styles => {
-    :big => "600x600>",
+    :big => "300x300>",
     :small => "35x35#"
   }, :default_url => "/assets/missing.png"
   

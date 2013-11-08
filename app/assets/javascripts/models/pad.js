@@ -16,6 +16,7 @@ Baconbnb.Models.Pad = Backbone.Model.extend({
 	},
 	
 	parse: function (serverAttributes, options) {
+		debugger
 		this.amenities().reset(serverAttributes.amenities);		
 		this.owner().set(serverAttributes.owner);
 		delete serverAttributes.amenities;

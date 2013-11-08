@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131107222734) do
+ActiveRecord::Schema.define(:version => 20131108055931) do
 
   create_table "amenities", :force => true do |t|
     t.string   "name",       :null => false
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(:version => 20131107222734) do
     t.string   "neighborhood",    :default => "Marina"
     t.string   "cancellation",    :default => "Flexible"
     t.integer  "neighborhood_id"
+    t.string   "filepicker_url"
   end
 
   add_index "pads", ["address"], :name => "index_pads_on_address"

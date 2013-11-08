@@ -2,7 +2,7 @@ class Pad < ActiveRecord::Base
   attr_accessible :name, :address, :owner_id, :description, 
                   :room_type, :bed_type, :accomodates, :bathrooms,
                   :min_stay, :country, :city, :neighborhood, :cancellation,
-                  :neighborhood_id
+                  :neighborhood_id, :filepicker_url
   
   geocoded_by :address
   
