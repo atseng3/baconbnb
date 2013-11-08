@@ -31,6 +31,6 @@ class UsersController < ApplicationController
     if params.include?(:id)
       @user = User.find(params[:id])
     end
-    redirect_to root_url
+    render :show
   end
 end

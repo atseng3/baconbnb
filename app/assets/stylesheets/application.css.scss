@@ -80,6 +80,7 @@ body {
 .row.pagedetail {
 	margin-left: 80px;
 	margin-right: 80px;
+	padding-bottom: 20px;
 }
 
 .book {
@@ -107,6 +108,7 @@ body {
 }
 
 .owner {
+	text-align: center;
 	padding: 20px 20px;
 	margin-top: 10px;
 	border: 1px solid #dbdbdb;
@@ -169,34 +171,34 @@ body {
 //	color: #4aa3ff;
 //}
 
-.main {
-width:400px;
-height: 300px;
-border:1px solid black;
-}
-
-.month {
-background-color: gray;
-font:bold 20px verdana;
-color:white;
-}
-
-.daysofweek {
-background-color:gray;
-font:bold 12px verdana;
-color:white;
-}
-
-.days {
-font-size: 20px;
-font-family:verdana;
-background-color: lightgray;
-padding: 2px;
-}
-
-.days #today{
-font-weight: bold;
-}
+//.main {
+//width:400px;
+//height: 300px;
+//border:1px solid black;
+//}
+//
+//.month {
+//background-color: gray;
+//font:bold 20px verdana;
+//color:white;
+//}
+//
+//.daysofweek {
+//background-color:gray;
+//font:bold 12px verdana;
+//color:white;
+//}
+//
+//.days {
+//font-size: 20px;
+//font-family:verdana;
+//background-color: lightgray;
+//padding: 2px;
+//}
+//
+//.days #today{
+//font-weight: bold;
+//}
 
 .form-horizontal.trip-form {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -262,4 +264,26 @@ font-weight: bold;
 		display: inline-block;
 		width: 500px;
 	}
+}
+
+.calendar {
+	font-weight: 700;
+	text-align: center;
+	th {
+		background-color: #666666;
+	}
+	.in_the_past {
+		background-color: gray;
+	}
+	.available {
+		background-color: #74DF00;
+	}
+	.unavailable {
+		background-color: #DF3A01;
+	}
+}
+
+.calendar-notice {
+	width: 200px;
+	display: inline;
 }

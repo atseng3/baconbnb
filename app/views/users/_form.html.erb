@@ -2,7 +2,26 @@
 <% method = (user.persisted? ? "put" : "post") %>
 <% message = (user.persisted? ? "Update user" : "Create user") %>
 
-<form action="<%= action %>" method="post">
+<%= form_for @user do |f| %>
+  <%= f.label "First Name: " %>
+  <%= f.text_field :f_name %><br />
+
+  <%= f.label "Last Name: " %>
+  <%= f.text_field :l_name %><br />
+	
+  <%= f.label "Email: " %>
+  <%= f.text_field :email %><br />
+	
+  <%= f.label "Password: " %>
+  <%= f.password_field :password %><br />
+	
+	<%= f.label "Profile Photo: "%>
+	<%= f.file_field :profile_photo %><br />
+
+  <%= f.submit %>
+<% end %>
+
+<!-- <form action="<%= action %>" method="post">
   <input
      name="_method"
      type="hidden"
@@ -27,4 +46,4 @@
   <br>
 
   <input type="submit" value="<%= message %>">
-</form>
+</form> -->

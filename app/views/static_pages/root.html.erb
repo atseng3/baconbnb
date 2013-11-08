@@ -24,6 +24,7 @@
 				<ul class="nav navbar-nav pull-right">
 					<li class="btn btn-navbar">
 						<% if !current_user.nil? %>
+							<li style="margin-top: 2px;"><%= image_tag current_user.profile_photo.url(:small) %></li>
 							<li><a><%= current_user.f_name + " " + current_user.l_name %></a></li>
 					    <li><%= link_to "Logout", session_url, :method => :delete %></li>
 						<% else %>
@@ -52,7 +53,8 @@
   </p>
 </div>
 <% end %>
-	
+
+			
 <div class="content"></div>
 
 <script type="application/json" id="bootstrapped_pads_json">
@@ -66,7 +68,7 @@
         <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
         <h4 class="modal-title" id="myModalLabel">Sign Up!</h4>
       </div>
-			<form class="signup-form" action="<%= users_url %>" method="post">
+			<form class="signup-form" action="<%= users_url %>" method="post" enctype="multipart/form-data">
 	      <div class="modal-body modal-signup">
 					<button class="login-facebook btn btn-primary">Log In with Facebook</button>
 				  <input
@@ -101,6 +103,10 @@
 				     name="user[password]"
 				     type="password">
 				  <br>
+					
+					<label for="profile_photo">Profile Photo</label>
+					<input type="file" name="user[profile_photo]"/>
+					
 	      </div>
 	      <div class="modal-footer">
 	        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

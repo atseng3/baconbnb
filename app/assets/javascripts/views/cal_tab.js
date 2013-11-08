@@ -17,7 +17,7 @@ Baconbnb.Views.CalendarTab = Backbone.View.extend({
 		var renderedContent = this.template({
 			pad: this.pad
 		})
-		this.$el.html(this.renderCal());
+		this.$el.html(renderedContent);
 		this.$el.appendTo(targetEl);
 	}
 });

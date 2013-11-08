@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  attr_accessible :f_name, :l_name, :email, :password
+  attr_accessible :f_name, :l_name, :email, :password, :profile_photo
   attr_reader :password
 
   validates :password_digest, :presence => { :message => "Password can't be blank" }
@@ -8,6 +8,15 @@ class User < ActiveRecord::Base
   validates :f_name, :l_name, :email, :presence => true
 
   after_initialize :ensure_session_token
+  
+  has_attached_file :profile_photo, :styles => {
+    :big => "600x600>",
+    :small => "35x35#"
+  }, :default_url => "/assets/missing.png"
+  
+  def profile_photo_url
+    self.profile_photo.url
+  end
 
   def self.find_by_credentials(email, password)
     user = User.find_by_email(email)

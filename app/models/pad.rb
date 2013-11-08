@@ -33,6 +33,8 @@ class Pad < ActiveRecord::Base
              :primary_key => :id, 
              :foreign_key => :neighborhood_id, 
              :class_name => 'Neighborhood'
+             
+  has_many :photos
   
   def gmaps_hash
     hash = Gmaps4rails.build_markers([self]) do |pad, marker|
@@ -45,6 +47,6 @@ class Pad < ActiveRecord::Base
   end
 
   def as_json(options)
-    super(:include => [:amenities, :owner], :methods => [:gmaps_hash])
+    super(:include => [:amenities, {:owner => {:methods => [:profile_photo_url]}}], :methods => [:gmaps_hash])
   end
 end

@@ -2,7 +2,7 @@
 <% method = (pad.persisted? ? "put" : "post") %>
 <% message = (pad.persisted? ? "Update pad" : "List pad") %>
 
-<form action="<%= action %>" method="post">
+<form class="dropzone" id="photo_dropzone" action="<%= action %>" method="post" enctype="multipart/form-data">
   <input
      name="_method"
      type="hidden"
@@ -67,6 +67,48 @@
 	</select>
 		
 	<br>
+	
+	<label for="pad_photos">Photos</label>
+	<div class="dropzone-previews"></div>
 
-  <input type="submit" class="btn" value="<%= message %>">
+  <button type="submit" class="btn"><%= message %></button>
 </form>
+
+<script>
+	Dropzone.options.photoDropzone = {
+		paramName: "pad[photos]",
+		addRemoveLinks: true,
+		acceptedFiles: ".jpeg, .gif, .png, .jpg",
+		uploadMultiple: true,
+		autoProcessQueue: false,
+	  init: function() {
+	    var myDropzone = this;
+
+	    // First change the button to actually tell Dropzone to process the queue.
+	    this.element.querySelector("button[type=submit]").addEventListener("click", function(e) {
+	      // Make sure that the form isn't actually being sent.
+	      e.preventDefault();
+	      e.stopPropagation();
+	      myDropzone.processQueue();
+	    });
+
+	    // Listen to the sendingmultiple event. In this case, it's the sendingmultiple event instead
+	    // of the sending event because uploadMultiple is set to true.
+	    this.on("sendingmultiple", function() {
+	      // Gets triggered when the form is actually being sent.
+	      // Hide the success button or the complete form.
+				alert("sendingmultiple");
+	    });
+	    this.on("successmultiple", function(files, response) {
+	      // Gets triggered when the files have successfully been sent.
+	      // Redirect user or notify of success.
+				alert("successmultiple");
+	    });
+	    this.on("errormultiple", function(files, response) {
+	      // Gets triggered when there was an error sending the files.
+	      // Maybe show form again, and notify user of error
+				alert("errormultiple");
+	    });
+	  }
+	}
+</script>

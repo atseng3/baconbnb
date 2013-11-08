@@ -1,5 +1,28 @@
 <%= form_for [@pad, @photo] do |f| %>
+<%= f.label ""%>
 	<%= f.file_field :image %>
+	
 
 	<%= f.submit %>
 <% end %>		 
+
+
+
+<%= form_for @user do |f| %>
+  <%= f.label "First Name: " %>
+  <%= f.text_field :f_name %><br />
+
+  <%= f.label "Last Name: " %>
+  <%= f.text_field :l_name %><br />
+	
+  <%= f.label "Email: " %>
+  <%= f.text_field :email %><br />
+	
+  <%= f.label "Password: " %>
+  <%= f.text_field :password %><br />
+	
+	<%= f.label "Profile Photo: "%>
+	<%= f.file_field :profile_photo %><br />
+
+  <%= f.submit %>
+<% end %>

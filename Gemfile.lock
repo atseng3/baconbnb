@@ -77,6 +77,8 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    filepicker-rails (1.0.0)
+      rails (>= 3.2)
     geocoder (1.1.8)
     gmaps4rails (2.0.3)
     hike (1.2.3)
@@ -171,6 +173,7 @@ DEPENDENCIES
   bootstrap-sass
   coffee-rails (~> 3.2.1)
   debugger
+  filepicker-rails
   geocoder
   gmaps4rails
   jquery-rails

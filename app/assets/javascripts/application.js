@@ -16,7 +16,7 @@
 //= require underscore
 //= require gmaps/google
 //= require bootstrap
-//= require basiccalendar
+//= require dropzone
 //= require bootstrap-datetimepicker
 //= require gmaps/google
 //= require backbone
