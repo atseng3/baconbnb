@@ -12,3 +12,12 @@
 <% @pad.amenities.each do |amenity| %><br>
 <%= amenity.name%><br>
 <% end %>
+
+<h2>Requests</h2>
+<% @pad.bookings.each do |booking| %>
+	<%= "Start Date: " + booking.start_date.to_s %><br>
+	<%= "End Date: " + booking.end_date.to_s %><br>
+	<%= "Status: " + booking.status.to_s %><br>
+	<%= button_to "Approve Request", approve_booking_url(booking), :method => :put %>
+	<%= button_to "Deny Request", deny_booking_url(booking), :method => :put%>
+<% end %>

@@ -8,7 +8,8 @@ class PadsController < ApplicationController
   
   def show
     @pad = Pad.find(params[:id])
-    render :json => @pad
+    # render :json => @pad
+    render :show
   end
   
   def new

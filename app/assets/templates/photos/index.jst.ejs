@@ -1,7 +1,6 @@
-<% debugger %>
-<% pad.attachments().each(function (attachment){ %>
 
 <div class="photoList">
+	<% pad.attachments().each(function (attachment){ %>
     <a class="photolinks" style="float: left;" href="<%= attachment.get("url") %>" title="<%= attachment.get("filename") %>">
         <img src="<%= attachment.get("url") %>" alt="<%= attachment.get("filename") %>" style="width: 200px; height: 150px;">
     </a>

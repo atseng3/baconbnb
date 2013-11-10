@@ -6,6 +6,8 @@
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 	<%= filepicker_js_include_tag %>
+	
+	<link rel="stylesheet" href="/blueimp-gallery.min.css">
 
   <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="http://code.jquery.com/jquery-1.9.1.js"></script>
@@ -20,5 +22,6 @@
 <%= yield %>
 
 <script type="text/javascript" src="//api.filepicker.io/v1/filepicker.js"></script>
+<script src="js/blueimp-gallery.min.js"></script>
 </body>
 </html>

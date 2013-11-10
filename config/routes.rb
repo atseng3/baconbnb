@@ -11,5 +11,12 @@ Baconbnb::Application.routes.draw do
   
   resources :amenities, :only => [:create]
   
+  resources :bookings, :only => [:edit, :update, :destroy, :create, :new] do
+    member do 
+      put 'approve'
+      put 'deny'
+    end
+  end
+  
   root :to => "pads#index"
 end

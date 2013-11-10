@@ -59,14 +59,13 @@
 	</div>
 	<div class="pads-list">
 		<% pads.each(function(pad) { %>
-			<div class="pad-icon icon-image">
+			<div class="pad-icon icon-image"><%= pad.escape("name")%>
 				<a href="#pads/<%= pad.id %>">
 				<% if (pad.attachments().models[0] != undefined) { %>
 				<img src="<%= pad.attachments().models[0].get("url") %>">
 				<% } else { %>
 				<img src="assets/large.jpg">
 				<% } %>
-				<%= pad.escape("name") %>		
 			</a>
 			</div>
 		<% }); %>
