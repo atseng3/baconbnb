@@ -2,66 +2,58 @@
 <% method = (pad.persisted? ? "put" : "post") %>
 <% message = (pad.persisted? ? "Update pad" : "List pad") %>
 
-	<%= form_for @pad do |f| %>
-	  <div>
-		  <label for="pad_name">Name</label>
-		  <input
-		     id="pad_name"
-		     name="pad[name]"
-		     type="text">
-		  <br>
+	<%= simple_form_for @pad do |f| %>
+	<%= f.error_notification %>
+	<div class="form_inputs">
+	<%= f.input :name %>
+	<%= f.hint 'No special characters, please!' %>
+	<%= f.input :address %>
+  <%= f.error :address, id: 'address_error' %>
+	<%= f.input :price %>
+	<input type="hidden" name="pad[owner_id]" value="<%= current_user.id %>">
+	<%= f.input :description %>
+	<%= f.input :room_type %>		
+	<fieldset class="group">
+		<legend>Select Amenities</legend>
+			<% all_amens.each do |amen| %>
+				<input 
+				class="amen-checkbox" type="checkbox" name="amenities[]" id="<%= amen %>" value="<%= amen %>"><label class="amen-checkbox" for="<%= amen %>"><%= amen %></label>
+			<% end %>
+	</fieldset>
 
-			<label for="address">Address</label>
-			<input 
-				type="text" 
-				name="pad[address]" 
-				value="<%= pad.address %>" 
-				id="address">
+	<%= f.input :accomodates, collection: 1..16 %>
+	<div class="file_fields">
 		
-			<input 
-				type="hidden" 
-				name="pad[owner_id]" 
-				value="<%= current_user.id %>">
+	</div>
 	
-			<label for="description">Description</label>
-			<textarea 
-				rows="4" 
-				cols="50" 
-				name="pad[description]" 
-				value="<%= pad.description %>" 
-				id="description"></textarea>
+	
+	
+  <%= f.label :filepicker_url, "Upload Photos of Your Pad:" %>
+  <%= f.filepicker_field :filepicker_url, multiple: true, dragdrop: true, onchange: "processPhotos()"%>
+	
+	<%= f.full_error :token %>
+	<%= f.button :submit, input_html: { class: "btn" } %>
+	</div>
+	<div class="uploadedPhotos">
 		
-			<label for="room_type">Room Type</label>
-			<select>
-				<option value="Private Room">Private Room</option>
-				<option value="Shared Room">Shared Room</option>
-				<option value="Entire home/apt">Entire home/apt</option>					
-			</select>
-		
-			<label for="accomodates">Accomodates</label>
-			<select>
-				<option value="1">1</option>
-				<option value="2">2</option>
-				<option value="3">3</option>
-				<option value="4">4</option>
-				<option value="5">5</option>
-				<option value="6">6</option>
-				<option value="7">7</option>
-				<option value="8">8</option>
-				<option value="9">9</option>
-				<option value="10">10</option>
-				<option value="11">11</option>
-				<option value="12">12</option>
-				<option value="13">13</option>
-				<option value="14">14</option>
-				<option value="15">15</option>
-				<option value="16+">16+</option>
-			</select>
-		
-			<br>
-	    <%= f.label :filepicker_url, "Upload Photos of Your Pad:" %>
-	    <%= f.filepicker_field :filepicker_url, dragdrop: true %>
-	  </div>
-		
-	  <button type="submit" class="btn"><%= message %></button>
+	</div>
 	<% end %>
+	
+<script>
+var processPhotos = function () {
+	var i = 1;
+	event.fpfiles.forEach(function (file){
+		$(".file_fields").append("<input type='hidden' name='attachments[" + i + "][filename]' value='" + file.filename + "'>");
+		$(".file_fields").append("<input type='hidden' name='attachments[" + i + "][mimetype]' value='" + file.mimetype + "'>");
+		$(".file_fields").append("<input type='hidden' name='attachments[" + i + "][size]' value='" + file.size + "'>");
+		$(".file_fields").append("<input type='hidden' name='attachments[" + i + "][url]' value='" + file.url + "'>");
+		i += 1;
+		displayPicture(file);
+	});
+
+}
+
+var displayPicture = function (data){
+	$(".uploadedPhotos").append("<img src=" + data.url + ">");
+}
+</script>

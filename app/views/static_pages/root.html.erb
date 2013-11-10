@@ -24,7 +24,7 @@
 				<ul class="nav navbar-nav pull-right">
 					<li class="btn btn-navbar">
 						<% if !current_user.nil? %>
-							<li style="margin-top: 2px;"><%= image_tag current_user.profile_photo.url(:small) %></li>
+							<li style="margin-top: 2px; width: 25px; height: 25px; "><%= image_tag current_user.profile_photo.url(:small) %></li>
 							<li><a><%= current_user.f_name + " " + current_user.l_name %></a></li>
 					    <li><%= link_to "Logout", session_url, :method => :delete %></li>
 						<% else %>
@@ -32,10 +32,9 @@
 							<li><a href="#" class="login-link" data-toggle="modal" data-target="#myLoginModal">Log In</a></li>
 						<% end %>
 						<li><%= link_to "Help", "#"%></li>
-						<li><button type="button" class="btn navbar-btn">LIST YOUR SPACE</button></li>
+						<li><button class="btn navbar-btn" type="button" onclick="window.location.href='/pads/new'">LIST YOUR SPACE</button></li>
 					</li>
 				</ul>
-
 		</div>
   </div>
 </nav>

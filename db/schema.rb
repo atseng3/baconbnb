@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131108055931) do
+ActiveRecord::Schema.define(:version => 20131110203008) do
 
   create_table "amenities", :force => true do |t|
     t.string   "name",       :null => false
@@ -21,6 +21,15 @@ ActiveRecord::Schema.define(:version => 20131108055931) do
   end
 
   add_index "amenities", ["name"], :name => "index_amenities_on_name"
+
+  create_table "attachments", :force => true do |t|
+    t.text     "filename",   :null => false
+    t.text     "mimetype",   :null => false
+    t.integer  "size",       :null => false
+    t.integer  "pad_id",     :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
   create_table "bookings", :force => true do |t|
     t.integer  "booker_id",  :null => false
@@ -66,6 +75,7 @@ ActiveRecord::Schema.define(:version => 20131108055931) do
     t.string   "cancellation",    :default => "Flexible"
     t.integer  "neighborhood_id"
     t.string   "filepicker_url"
+    t.integer  "price"
   end
 
   add_index "pads", ["address"], :name => "index_pads_on_address"

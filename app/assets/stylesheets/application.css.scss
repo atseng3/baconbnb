@@ -15,6 +15,17 @@
 body {
 	background-color: #F5A9A9;
 	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	.carousel-control {
+		background-color: none;
+		border: 0;
+	}
+	.carousel-indicators {
+		top: 550px;
+		right: 680px;
+	}
+}
+
+.input-searchbox {
 }
 
 .sidebar {
@@ -34,9 +45,9 @@ body {
 }
 
 .neighborhoods {
-	width: 100%;
+	width: 1320px%;
 	height: 100%;
-	padding: 50px;
+	padding: 20px;
 	margin: auto;
 }
 
@@ -48,19 +59,28 @@ body {
 	float: left;
 //	transition: opacity 0.3s linear;
 //	transition: background 0.3s linear;
+	.cities-icon {
+		box-shadow: 0 0 2px #999;	
+		opacity: 0.9;
+	}
+	.cities-icon:hover {
+		box-shadow: 0 0 4px #333;	
+		opacity: 1;
+	}
 }
 
-//.sub-neighborhoods:hover {
-//	background: white;
-//	opacity: 0.4;
-//}
+.table.striped.calendar-table {
+	box-shadow: 0 0 2px #999;
+}
 
 .sidebar-left {
 	float: left;
 }
 
 .sidebar-right {
+
 	float: left;
+	width: 820px;
 	.pad-icon {
 		font-size: 140%;
 		float: left;
@@ -70,6 +90,16 @@ body {
 		margin-bottom: 20px;
 		width: 350px;
 		height: 350px;
+		box-shadow: 0 0 2px #999;	
+	}
+	.pad-icon:hover {
+		box-shadow: 0 0 4px #333;	
+	}
+	.icon-image {
+		opacity: 0.9;
+	}
+	.icon-image:hover {
+		opacity: 1;
 	}
 }
 
@@ -77,63 +107,104 @@ body {
 	text-align: right;
 }
 
+.span4.side {
+	.side-detail {
+		.book {
+			border: 1px solid #dbdbdb;
+			border-radius: 2px;	
+			margin-bottom: 10px;
+			background-color: #fefefe;
+			.book-info {
+				border-bottom: 1px solid #dbdbdb;
+				padding: 20px;
+				background-color: #efefef;
+				.from {
+					font-size: 20px;
+				}
+				.price {
+					color: green;
+					font-size: 35px;
+					font-style: bold;
+					margin-bottom: 5px;
+				}
+			}
+			.book-btn {
+				padding: 20px;
+				.btn.btn-primary.book-btn {
+					padding: 5px;
+					width: 320px;
+					height: 50px;
+					font-size: 30px;
+				}
+			}
+		}
+
+		.owner {
+			text-align: center;
+//			padding: 20px;
+			margin-top: 10px;
+			border: 1px solid #dbdbdb;
+			border-radius: 2px;
+			background-color: #efefef;
+			.profile-pic {
+				padding: 20px;
+			}
+			.owner-info {
+				padding: 20px;
+				margin-top: 10px;
+				border: 1px solid #dbdbdb;
+				border-radius: 2px;
+				background-color: #fefefe;
+				font-size: 20px;
+				font-style: bold;
+				line-height: 27px;
+			}
+		}	
+	}
+}
+
 .row.pagedetail {
 	margin-left: 80px;
 	margin-right: 80px;
 	padding-bottom: 20px;
+	.span8.detail-display{
+		display: block;
+//		border: 1px solid #dbdbdb;
+		border-radius: 2px;
+		background-color: #fefefe;
+		margin-bottom: 12.5px;
+		box-sizing: border-box;
+		.visual {
+			border: 1px solid #dbdbdb;
+			background-color: #efefef;
+			border-radius: 2px;
+			padding: 20px;
+			width: 728px;
+//			height: 660px;
+			.visualContent {
+			}
+		}
+		.details {
+			border: 1px solid #dbdbdb;
+			background-color: #efefef;
+			margin-top: 20px;
+			border-radius: 2px;
+			padding: 20px;
+			width: 728px;
+//			height: 660px;
+			.leftbar {
+				float: left;
+				width: 464px;
+			}
+			.rightbar {
+				float: right;
+				width: 264px;
+			}
+		}
+	}
 }
 
-.book {
-	padding: 20px 20px;
-	border: 1px solid #dbdbdb;
-	border-radius: 2px;
-	background-color: #fefefe;
-	margin-bottom: 10px;
-}
 
-.from {
-	font-size: 20px;
-}
-
-.price {
-	color: green;
-	font-size: 35px;
-	margin-bottom: 5px;
-}
-
-.btn.btn-primary.book-btn {
-	width: 320px;
-	height: 50px;
-	font-size: 30px;
-}
-
-.owner {
-	text-align: center;
-	padding: 20px 20px;
-	margin-top: 10px;
-	border: 1px solid #dbdbdb;
-	border-radius: 2px;
-	background-color: #fefefe;
-}
-
-.span8 {
-	display: block;
-	border: 1px solid #dbdbdb;
-	border-radius: 2px;
-	background-color: #fefefe;
-	margin-bottom: 12.5px;
-	box-sizing: border-box;
-}
-
-.visual {
-	padding-left: 10px;
-	padding-bottom: 10px;
-}
-
-.details {
-	padding-left: 10px;
-	padding-bottom: 10px;
-}
 
 .item {
 	position: absolute;
@@ -200,6 +271,10 @@ body {
 //font-weight: bold;
 //}
 
+.trip-search {
+	border-bottom: 1px solid #efefef;
+}
+
 .form-horizontal.trip-form {
 	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 	font-size: 14px;
@@ -207,8 +282,16 @@ body {
 	color: #333333;
 }
 
-.span2.trip-search {
-	width: 100px;
+.room-search {
+	margin-top: 20px;
+	border-bottom: 1px solid #efefef;
+	height: 80px;
+	.span2.room-type-search {
+		width: 120px;
+	}
+	.span2.trip-search-title {
+		width: 150px;
+	}
 }
 
 .form_datetime {
@@ -219,10 +302,6 @@ body {
 .form-horizontal.drop-down {
 	margin-left: 20px;
 	width: 100px;
-}
-
-.span2.room-type-search {
-	width: 120px;
 }
 
 .filter-primary-item.span2 {
@@ -252,6 +331,9 @@ body {
 }
 
 .price-search-box {
+	border-bottom: 1px solid #efefef;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	h6 {
 		width: 80px;
 	}
@@ -286,4 +368,13 @@ body {
 .calendar-notice {
 	width: 200px;
 	display: inline;
+}
+
+.photolinks {
+	width: 200px;
+	height: 200px;
+}
+
+.amen-checkbox {
+	float: left;
 }

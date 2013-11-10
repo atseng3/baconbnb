@@ -18,14 +18,18 @@ class PadsController < ApplicationController
   
   def create
     @pad = Pad.new(params[:pad])
-    @pads = Pad.all
+    @pad_amenities = params[:amenities]
+    @pad_amenities.each do |amen|
+      @pad.amenities.new(name: amen)
+    end
+    if !params[:attachments].values
+      @pad.attachments.new(params[:attachments].values)
+    end
     
     if @pad.save
-      render 'static_pages/root'
-      # redirect_to root_url
+      redirect_to root_url
     else
       flash[:errors] = @pad.errors.full_messages
-      # render :json => @pad.errors.full_messages, :status => :unprocessable_entity
       redirect_to root_url
     end
   end

@@ -2,7 +2,7 @@ class Pad < ActiveRecord::Base
   attr_accessible :name, :address, :owner_id, :description, 
                   :room_type, :bed_type, :accomodates, :bathrooms,
                   :min_stay, :country, :city, :neighborhood, :cancellation,
-                  :neighborhood_id, :filepicker_url
+                  :neighborhood_id, :filepicker_url, :price
   
   geocoded_by :address
   
@@ -22,12 +22,14 @@ class Pad < ActiveRecord::Base
            
   has_many :booked_users, :through => :bookings, :source => :booker
           
-  has_many :pad_amenities, 
-           :primary_key => :id,
-           :foreign_key => :pad_id, 
-           :class_name => 'PadAmenity'
+  # has_many :pad_amenities, 
+  #          :primary_key => :id,
+  #          :foreign_key => :pad_id, 
+  #          :class_name => 'PadAmenity'
            
-  has_many :amenities, :through => :pad_amenities, :source => :amenity
+  # has_many :amenities, :through => :pad_amenities, :source => :amenity
+  
+  has_many :amenities, :inverse_of => :pad
   
   belongs_to :neighborhood,
              :primary_key => :id, 
@@ -35,6 +37,11 @@ class Pad < ActiveRecord::Base
              :class_name => 'Neighborhood'
              
   has_many :photos
+  
+  # has_many :pad_attachments
+  
+  # has_many :attachments, :through => :pad_attachments, :source => :attachment
+  has_many :attachments, :inverse_of => :pad
   
   def gmaps_hash
     hash = Gmaps4rails.build_markers([self]) do |pad, marker|
@@ -47,6 +54,6 @@ class Pad < ActiveRecord::Base
   end
 
   def as_json(options)
-    super(:include => [:amenities, {:owner => {:methods => [:profile_photo_url]}}], :methods => [:gmaps_hash])
+    super(:include => [:amenities, :attachments, {:owner => {:methods => [:profile_photo_url]}}], :methods => [:gmaps_hash])
   end
 end
