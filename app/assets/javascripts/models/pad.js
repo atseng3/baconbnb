@@ -15,12 +15,20 @@ Baconbnb.Models.Pad = Backbone.Model.extend({
 		return this._owner;
 	},
 	
+	attachments: function () {
+		if (!this._attachments) {
+			this._attachments = new Baconbnb.Collections.Attachments([], { pad: this });
+		}
+		return this._attachments;
+	},
+	
 	parse: function (serverAttributes, options) {
-		debugger
 		this.amenities().reset(serverAttributes.amenities);		
 		this.owner().set(serverAttributes.owner);
+		this.attachments().reset(serverAttributes.attachments);
 		delete serverAttributes.amenities;
 		delete serverAttributes.owner;
+		delete serverAttributes.attachments;
 		return serverAttributes;
 	}
 });

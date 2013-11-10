@@ -1,1 +1,21 @@
-<img src="<%= pad.get("filepicker_url") %>">
+<% debugger %>
+<% pad.attachments().each(function (attachment){ %>
+
+<div class="photoList">
+    <a class="photolinks" style="float: left;" href="<%= attachment.get("url") %>" title="<%= attachment.get("filename") %>">
+        <img src="<%= attachment.get("url") %>" alt="<%= attachment.get("filename") %>" style="width: 200px; height: 150px;">
+    </a>
+</div>
+
+<% }); %>
+
+<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
+<div id="blueimp-gallery" class="blueimp-gallery">
+    <div class="slides"></div>
+    <h3 class="title"></h3>
+    <a class="prev">‹</a>
+    <a class="next">›</a>
+    <a class="close">×</a>
+    <a class="play-pause"></a>
+    <ol class="indicator"></ol>
+</div>

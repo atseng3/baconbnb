@@ -29,7 +29,7 @@ class Pad < ActiveRecord::Base
            
   # has_many :amenities, :through => :pad_amenities, :source => :amenity
   
-  has_many :amenities, :inverse_of => :pad
+  has_many :amenities, :inverse_of => :pad, dependent: :destroy
   
   belongs_to :neighborhood,
              :primary_key => :id, 
@@ -41,7 +41,7 @@ class Pad < ActiveRecord::Base
   # has_many :pad_attachments
   
   # has_many :attachments, :through => :pad_attachments, :source => :attachment
-  has_many :attachments, :inverse_of => :pad
+  has_many :attachments, :inverse_of => :pad, dependent: :destroy
   
   def gmaps_hash
     hash = Gmaps4rails.build_markers([self]) do |pad, marker|

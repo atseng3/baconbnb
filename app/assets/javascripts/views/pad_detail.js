@@ -2,7 +2,17 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 	template: JST["pads/detail"],
 	
 	events: {
-		"click .tab": "openTab"
+		"click .tab": "openTab",
+		"click .photoList": "openGallery"
+	},
+	
+	openGallery: function (event) {
+		event = event || window.event;
+		var target = event.target || event.srcElement,
+		link = target.src ? target.parentNode : target,
+		options = {index: link, event: event},
+		links = $('.photolinks');
+		blueimp.Gallery(links, options);
 	},
 	
 	tabViews: {},

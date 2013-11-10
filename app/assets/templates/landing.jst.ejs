@@ -1,4 +1,4 @@
-<div id="carousel-example-generic" class="carousel slide" data-ride="carousel">
+<div id="carousel-example-generic" class="carousel slide" data-ride="carousel" style="width: 100%;">
   <!-- Indicators -->
   <ol class="carousel-indicators">
     <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
@@ -14,33 +14,34 @@
 		<div class="main-search">
 			<h1>Find a place to stay.</h1><br>
 			<h4>Rent from people in over 34,000 cities and 192 countries.</h4><br>
-			
-			<input 
-				type="text" 
-				class="span3" 
-				style="margin: 0 auto;" 
-				data-provide="typeahead" 
-				data-items="4"
-			  data-source='["San Francisco, CA","New York, NY","Taipei, Taiwan","Sydney, Australia","Tokyo, Japan","Pigs"]' 				placeholder="Where do you want to go?">
+			<div class="input-searchbox">
+				<input 
+					type="text" 
+					class="span3" 
+					style="margin: 0 auto;" 
+					data-provide="typeahead" 
+					data-items="4"
+				  data-source='["San Francisco, CA","New York, NY","Taipei, Taiwan","Sydney, Australia","Tokyo, Japan","Pigs"]' 				placeholder="Where do you want to go?">
 	
-			<input 
-				type="date" 
-				name="search[check_in]"
-				placeholder="Check in">
+				<input 
+					type="date" 
+					name="search[check_in]"
+					placeholder="Check in">
 	
-			<input 
-				type="date" 
-				name="search[check_out]"
-				placeholder="Check out">
+				<input 
+					type="date" 
+					name="search[check_out]"
+					placeholder="Check out">
 	
-			<input 
-				type="number" 
-				name="search[num_guests]"
-				placeholder="1 Guest">
+				<input 
+					type="number" 
+					name="search[num_guests]"
+					placeholder="1 Guest">
 
-			<button 
-				type="submit" 
-				class="btn btn-default">Search</button>
+				<button 
+					type="submit" 
+					class="btn btn-default">Search</button>
+			</div>
 		</div>
 	</form>
 
@@ -117,30 +118,32 @@
 
 <div class="neighborhoods">
 	<div class="page-header"><h2>..or explore..</h2></div>
-	<div class="sub-neighborhoods"><img src="/assets/san_fran.jpg" class="guide"></div>
+	<div class="sub-neighborhoods">
+		<img class="cities-icon" src="/assets/san_fran.jpg" class="guide">
+	</div>
 	
 	<div class="sub-neighborhoods">
 		<div class="cities">New York</div>
-		<img src="/assets/new_york.jpg" class="guide">
+		<img class="cities-icon" src="/assets/new_york.jpg" class="guide">
 	</div>
 	
 	<div class="sub-neighborhoods">
 		<div class="cities">Sydney</div>
-		<img src="/assets/sydney.jpg" class="guide">
+		<img class="cities-icon" src="/assets/sydney.jpg" class="guide">
 	</div>
 	
 	<div class="sub-neighborhoods">
 		<div class="cities">Taipei</div>
-		<img src="/assets/taipei.jpg" class="guide">
+		<img class="cities-icon" src="/assets/taipei.jpg" class="guide">
 	</div>
 	
 	<div class="sub-neighborhoods">
 		<div class="cities">London</div>
-		<img src="/assets/london.jpg" class="guide">
+		<img class="cities-icon" src="/assets/london.jpg" class="guide">
 	</div>
 	
 	<div class="sub-neighborhoods">
 		<div class="cities">Tokyo</div>
-		<img src="/assets/tokyo.jpg" class="guide">
+		<img class="cities-icon" src="/assets/tokyo.jpg" class="guide">
 	</div>
 </div>

@@ -22,9 +22,7 @@ class PadsController < ApplicationController
     @pad_amenities.each do |amen|
       @pad.amenities.new(name: amen)
     end
-    if !params[:attachments].values
-      @pad.attachments.new(params[:attachments].values)
-    end
+    @pad.attachments.new(params[:attachments].values)
     
     if @pad.save
       redirect_to root_url

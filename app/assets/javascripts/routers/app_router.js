@@ -4,7 +4,6 @@ Baconbnb.AppRouter = Backbone.Router.extend({
 		"pads/:id": "showPad",
 		// "search?*location": "showSearchResults",
 		"index": "showAllPads"
-
 	},
 	
 	showPad: function (id) {
