@@ -1,13 +1,16 @@
 class BookingsController < ApplicationController
+  # before_filter :require_pad_owner!, :only => [:approve, :deny]
+  
   def new
+    @pad = Pad.find(params[:pad_id])
     @booking = Booking.new
 
     render :new
   end
 
   def create
-    params[:booking][:pad_id] = params[:cat]
     @booking = Booking.new(params[:booking])
+
     if @booking.save
       redirect_to root_url
     else

@@ -3,7 +3,35 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 	
 	events: {
 		"click .tab": "openTab",
-		"click .photoList": "openGallery"
+		"click .photoList": "openGallery",
+		"submit form": "submitBooking"
+	},
+	
+	submitBooking: function (event) {
+		event.preventDefault();
+		// debugger
+		var payload = $(event.currentTarget).serializeJSON();
+		var booking = new Baconbnb.Models.Booking(payload.booking, { parse: true });
+		
+		if (!booking.isValid()) {
+			booking.validationError.forEach(function (errorMessage) {
+				this.$("form").prepend(
+					"<div>" + errorMessage + "</div>"
+				);
+			});
+			return;
+		}
+		
+		booking.save({}, {
+			success: function () {
+				Baconbnb.bookings.add(booking);
+			},
+			error: function (model, resp) {
+				debugger
+			}
+		});
+		
+		Bacbone.history.navigate("/", { trigger: true });
 	},
 	
 	openGallery: function (event) {

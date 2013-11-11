@@ -43,6 +43,15 @@ class Pad < ActiveRecord::Base
   # has_many :attachments, :through => :pad_attachments, :source => :attachment
   has_many :attachments, :inverse_of => :pad, dependent: :destroy
   
+  # def available?(date)
+  #   self.bookings.each do |booking|
+  #     if (booking.start_date..booking.end_date).cover?(date)
+  #       return false
+  #     end
+  #   end
+  #   true
+  # end
+  
   def gmaps_hash
     hash = Gmaps4rails.build_markers([self]) do |pad, marker|
       marker.lat pad.latitude
@@ -54,6 +63,6 @@ class Pad < ActiveRecord::Base
   end
 
   def as_json(options)
-    super(:include => [:amenities, :attachments, {:owner => {:methods => [:profile_photo_url]}}], :methods => [:gmaps_hash])
+    super(:include => [:amenities, :attachments, :bookings, {:owner => {:methods => [:profile_photo_url]}}], :methods => [:gmaps_hash])
   end
 end

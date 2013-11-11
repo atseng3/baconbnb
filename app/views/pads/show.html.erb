@@ -1,4 +1,6 @@
 <h2><%= @pad.name %></h2>
+<% pad_owner = User.find(@pad.id) %>
+Listed by <%= pad_owner.f_name + " " + pad_owner.l_name %><br>
 <%= @pad.address %><br>
 
 <div style='width: 800px;'>
@@ -15,9 +17,13 @@
 
 <h2>Requests</h2>
 <% @pad.bookings.each do |booking| %>
+	<% booker = User.find(booking.booker_id) %>
+	Booking Request by <%= booker.f_name + " " + booker.l_name %><br>
 	<%= "Start Date: " + booking.start_date.to_s %><br>
 	<%= "End Date: " + booking.end_date.to_s %><br>
 	<%= "Status: " + booking.status.to_s %><br>
-	<%= button_to "Approve Request", approve_booking_url(booking), :method => :put %>
-	<%= button_to "Deny Request", deny_booking_url(booking), :method => :put%>
+	<% if current_user.id == pad_owner.id %>
+		<%= button_to "Approve Request", approve_pad_booking_url(@pad, booking), :method => :put %>
+		<%= button_to "Deny Request", deny_pad_booking_url(@pad, booking), :method => :put %>
+	<% end %>
 <% end %>

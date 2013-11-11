@@ -22,10 +22,18 @@ Baconbnb.Models.Pad = Backbone.Model.extend({
 		return this._attachments;
 	},
 	
+	bookings: function () {
+		if (!this._bookings) {
+			this._bookings = new Baconbnb.Collections.Bookings([], { pad: this });
+		}
+		return this._bookings;
+	},
+	
 	parse: function (serverAttributes, options) {
 		this.amenities().reset(serverAttributes.amenities);		
 		this.owner().set(serverAttributes.owner);
 		this.attachments().reset(serverAttributes.attachments);
+		this.bookings().reset(serverAttributes.bookings);
 		delete serverAttributes.amenities;
 		delete serverAttributes.owner;
 		delete serverAttributes.attachments;

@@ -32,27 +32,29 @@
 			<div class="side-detail">
 				<div class="book">
 					<div class="book-info">
-						<label class="from">From</label><br>
-						<div class="price">$<%= pad.get("price") %></div><br>
-						<input 
-							type="date" 
-							name="search[check_in]"
-							placeholder="Check in">
+						<form class="booking-form">
+							<label class="from">From</label><br>
+							<div class="price">$<%= pad.get("price") %></div><br>
+							<input 
+								type="datetime" 
+								name="search[check_in]"
+								placeholder="Check in">
 			
-						<input 
-							type="date"
-							name="search[check_out]"
-							placeholder="Check out">
+							<input 
+								type="datetime"
+								name="search[check_out]"
+								placeholder="Check out">
 			
-						<input 
-							type="number" 
-							name="search[num_guests]"
-							placeholder="1 Guest"><br>
-					</div>
+							<input 
+								type="number" 
+								name="search[num_guests]"
+								placeholder="1 Guest"><br>
+						</div>
 				
-					<div class="book-btn">			
-						<button type="submit" class="btn btn-primary book-btn">BOOK</button>
-					</div>
+						<div class="book-btn">			
+							<button type="submit" class="btn btn-primary book-btn">BOOK</button>
+						</div>
+					</form>
 				</div>
 			
 				<div class="owner">

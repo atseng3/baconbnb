@@ -10,7 +10,7 @@ class Booking < ActiveRecord::Base
   validates :status, :inclusion => {in: %w(pending approved denied),
             message: "%{value} is not a valid status"}
             
-  validate :overlapping_approved_request, on: :create       
+  validate :overlapping_approved_bookings, on: :create       
   
   belongs_to :booker, 
              :primary_key => :id, 
@@ -22,29 +22,29 @@ class Booking < ActiveRecord::Base
              :foreign_key => :pad_id, 
              :class_name => 'Pad'
              
-   def overlapping_requests?(requests)
-     return false if requests.first.nil?
-     request.sort_by! { |request| request.start_date }
-     (requests.count-2).times do |t|
-       if request[t].end_date > request[t+1].start_date
+   def overlapping_bookings?(bookings)
+     return false if bookings.first.nil?
+     bookings.sort_by! { |booking| booking.start_date }
+     (bookings.count-2).times do |t|
+       if bookings[t].end_date > bookings[t+1].start_date
          return true
        end
      end
      false
    end
    
-   def overlapping_approved_requests
-     requests = self.cat.rental_requests.map do |request|
-       request if request.status == "approved"
+   def overlapping_approved_bookings
+     bookings = self.pad.bookings.map do |booking|
+       booking if booking.status == "approved"
      end
      
-     errors.add(:overlap, "That's an overlapping request!!") if overlapping_requests?(requests)
+     errors.add(:overlap, "That's an overlapping booking!!") if overlapping_bookings?(bookings)
    end
    
    def approve!
      self.status = "approved"
      self.save!
-     overlapping_pending_requests
+     overlapping_pending_bookings
    end
    
    def deny!
@@ -52,13 +52,13 @@ class Booking < ActiveRecord::Base
      self.save!
    end
    
-   def overlapping_pending_requests
-     requests = self.cat.rental_requests.map do |request|
-       request if request.status == "pending"
+   def overlapping_pending_bookings
+     bookings = self.pad.bookings.map do |booking|
+       booking if booking.status == "pending"
      end
-     requests.delete(nil)
-     deny = requests.select { |request| overlaps?(request) }
-     CatRentalRequest.transaction do 
+     bookings.delete(nil)
+     deny = bookings.select { |booking| overlaps?(booking) }
+     Booking.transaction do 
        deny.each do |req|
          req.status = "denied"
          req.save!

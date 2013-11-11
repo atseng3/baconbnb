@@ -1,23 +1,20 @@
-<% action_url = (action == :new) ? bookings_url : edit_booking_url(@booking) %>
+<% action_url = (action == :new) ? pad_bookings_url(@pad) : edit_pad_booking_url(@pad, @booking) %>
 
 <form action="<%= action_url %>" method="post">
 	<% if action == :edit %>
 		<input type="hidden" name="_method" value="put">
 	<% end %>
 
-	<label for="cat">Cat: </label>
-	<select name="cat" id="cat">
-		<% Cat.all.each do |cat| %>
-			<option value="<%= cat.id %>"><%= cat.name %></option>
-		<% end %>
-	</select>
-	<br>
+	<label for="Pad">Pad: <%= @pad.name %></label>
+		
+		<input type="hidden" name="booking[pad_id]" value="<%= @pad.id %>" id="booking[pad_id]">
+		<input type="hidden" name="booking[booker_id]" value="<%= current_user.id %>" id="booking[booker_id]">
 
   <label for="request_start_date">Start Date: </label>
-	<input type="date" name="request[start_date]" id="request_start_date" value="<%= @request.start_date %>"><br>
+	<input type="date" name="booking[start_date]" id="request_start_date" value="<%= @booking.start_date %>"><br>
 
   <label for="request_end_date">End Date: </label>
-	<input type="date" name="request[end_date]" id="request_end_date" value="<%= @request.end_date %>"><br>
+	<input type="date" name="booking[end_date]" id="request_end_date" value="<%= @booking.end_date %>"><br>
 
-	<input type="submit" value="Request Cat!">
+	<input type="submit" value="Book Pad!">
 </form>
