@@ -52,6 +52,10 @@ class Pad < ActiveRecord::Base
   #   true
   # end
   
+  def approved_bookings
+    self.bookings.where(status: "approved")
+  end
+  
   def gmaps_hash
     hash = Gmaps4rails.build_markers([self]) do |pad, marker|
       marker.lat pad.latitude
@@ -63,6 +67,6 @@ class Pad < ActiveRecord::Base
   end
 
   def as_json(options)
-    super(:include => [:amenities, :attachments, :bookings, {:owner => {:methods => [:profile_photo_url]}}], :methods => [:gmaps_hash])
+    super(:include => [:amenities, :attachments, :bookings, {:owner => {:methods => [:profile_photo_url]}}], :methods => [:gmaps_hash, :approved_bookings])
   end
 end
