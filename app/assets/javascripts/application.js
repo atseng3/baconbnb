@@ -20,6 +20,7 @@
 //= require fullcalendar
 //= require jquery.ui.all
 //= require jquery.serializeJSON
+//= require js-image-slider
 //= require baconbnb
 //= require_tree ../templates
 //= require_tree ./models

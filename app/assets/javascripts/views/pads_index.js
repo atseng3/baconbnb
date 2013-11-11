@@ -2,11 +2,11 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
 	template: JST["pads/index"],
 	
 	events: {
-		"click .form_datetime": "invokeDatePicker"
+		"click .index-form_datetime": "invokeDatePicker"
 	},
 	
 	invokeDatePicker: function (event) {
-    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
+    $(".index-form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
 	},
 	
   invokeSlider: function(event) {

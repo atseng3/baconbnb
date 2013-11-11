@@ -4,7 +4,6 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 	events: {
 		"click .tab": "openTab",
 		"click .form_datetime": "dateTimePicker",
-		"click .photoList": "openGallery",
 		"submit form": "submitBooking"
 	},
 	
@@ -36,15 +35,6 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		});
 		
 		Bacbone.history.navigate("/", { trigger: true });
-	},
-	
-	openGallery: function (event) {
-		event = event || window.event;
-		var target = event.target || event.srcElement,
-		link = target.src ? target.parentNode : target,
-		options = {index: link, event: event},
-		links = $('.photolinks');
-		blueimp.Gallery(links, options);
 	},
 	
 	tabViews: {},

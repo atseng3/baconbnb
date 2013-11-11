@@ -23,20 +23,34 @@
 					data-items="4"
 				  data-source='["San Francisco, CA","New York, NY","Taipei, Taiwan","Sydney, Australia","Tokyo, Japan","Pigs"]' 				placeholder="Where do you want to go?">
 	
-				<div class="input-append date form_datetime">
+				<div class="input-append date search-form_datetime">
 				    <input class="date-search-box" type="text" name="search[check_in]" placeholder="Check In">
 				    <span class="add-on"><i class="icon-th"></i></span>
 				</div>
 				
-				<div class="input-append date form_datetime">
+				<div class="input-append date search-form_datetime">
 				    <input class="date-search-box" type="text" name="search[check_out]" placeholder="Check Out">
 				    <span class="add-on"><i class="icon-th"></i></span>
 				</div>
 	
-				<input 
-					type="number" 
-					name="search[num_guests]"
-					placeholder="1 Guest">
+				<select class="form-horizontal drop-down" name="search[num_guests]">
+					<option value="1">1 Guest</option>
+					<option value="2">2 Guests</option>
+					<option value="3">3 Guests</option>
+					<option value="4">4 Guests</option>
+					<option value="5">5 Guests</option>
+					<option value="6">6 Guests</option>
+					<option value="7">7 Guests</option>					
+					<option value="8">8 Guests</option>
+					<option value="9">9 Guests</option>
+					<option value="10">10 Guests</option>
+					<option value="11">11 Guests</option>
+					<option value="12">12 Guests</option>
+					<option value="13">13 Guests</option>
+					<option value="14">14 Guests</option>
+					<option value="15">15 Guests</option>
+					<option value="16">16+ Guests</option>					
+				</select>
 
 				<button 
 					type="submit" 

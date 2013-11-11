@@ -1,20 +1,32 @@
 
-<div class="photoList">
-	<% pad.attachments().each(function (attachment){ %>
-    <a class="photolinks" style="float: left;" href="<%= attachment.get("url") %>" title="<%= attachment.get("filename") %>">
-        <img src="<%= attachment.get("url") %>" alt="<%= attachment.get("filename") %>" style="width: 200px; height: 150px;">
-    </a>
-</div>
 
-<% }); %>
+<div id="sliderFrame">
+	    <div id="slider">
+				<% pad.attachments().each(function (attachment) { %>
+				<a><img src="<%= attachment.get("url") %>"></a>
+				<% }); %>
+	    </div>
+	    <!--thumbnails-->
+	    <div id="thumbs">
+				<% pad.attachments().each(function (attachment){ %>
+				<div class="thumb"><img src="<%= attachment.get("url") %>"></div>					
+				<% });%>
+	    </div>
 
-<!-- The Gallery as lightbox dialog, should be a child element of the document body -->
-<div id="blueimp-gallery" class="blueimp-gallery">
-    <div class="slides"></div>
-    <h3 class="title"></h3>
-    <a class="prev">‹</a>
-    <a class="next">›</a>
-    <a class="close">×</a>
-    <a class="play-pause"></a>
-    <ol class="indicator"></ol>
+	    <!--captions-->
+	    <!-- <div style="display: none;">
+	        <div id="htmlcaption1">
+	            <div class="cap"></div>
+	        </div>
+	        <div id="htmlcaption2">
+	            <div class="cap cap2"></div>
+	        </div>
+	        <div id="htmlcaption3">
+	            <div class="cap cap3"></div>
+	        </div>
+	        <div id="htmlcaption4">
+	            <div class="cap cap4"></div>
+	        </div>
+	    </div> -->
+
 </div>

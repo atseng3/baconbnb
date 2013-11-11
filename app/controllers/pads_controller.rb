@@ -4,6 +4,7 @@ class PadsController < ApplicationController
   def index
     @pads = Pad.all
     render 'static_pages/root'
+    # render :index
   end
   
   def show
