@@ -23,15 +23,15 @@
 					data-items="4"
 				  data-source='["San Francisco, CA","New York, NY","Taipei, Taiwan","Sydney, Australia","Tokyo, Japan","Pigs"]' 				placeholder="Where do you want to go?">
 	
-				<input 
-					type="date" 
-					name="search[check_in]"
-					placeholder="Check in">
-	
-				<input 
-					type="date" 
-					name="search[check_out]"
-					placeholder="Check out">
+				<div class="input-append date form_datetime">
+				    <input class="date-search-box" type="text" name="search[check_in]" placeholder="Check In">
+				    <span class="add-on"><i class="icon-th"></i></span>
+				</div>
+				
+				<div class="input-append date form_datetime">
+				    <input class="date-search-box" type="text" name="search[check_out]" placeholder="Check Out">
+				    <span class="add-on"><i class="icon-th"></i></span>
+				</div>
 	
 				<input 
 					type="number" 

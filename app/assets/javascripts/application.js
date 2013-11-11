@@ -12,14 +12,14 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require jquery.serializeJSON
 //= require underscore
-//= require gmaps/google
 //= require bootstrap
-//= require dropzone
-//= require bootstrap-datetimepicker
 //= require gmaps/google
+//= require bootstrap-datetimepicker
 //= require backbone
+//= require fullcalendar
+//= require jquery.ui.all
+//= require jquery.serializeJSON
 //= require baconbnb
 //= require_tree ../templates
 //= require_tree ./models
@@ -27,3 +27,4 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+//= require_self

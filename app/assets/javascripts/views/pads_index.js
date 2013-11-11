@@ -6,7 +6,7 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
 	},
 	
 	invokeDatePicker: function (event) {
-    $(event.currentTarget).datetimepicker({format: 'yyyy-mm-dd'});
+    $(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
 	},
 	
   invokeSlider: function(event) {

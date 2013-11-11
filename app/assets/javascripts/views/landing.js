@@ -4,7 +4,12 @@ Baconbnb.Views.Landing = Backbone.View.extend({
 	events: {
 		"submit form": "searchLocation",
 		"submit .login-form": "logUserIn",
-		"click .signup-user": "signUserUp"
+		"click .signup-user": "signUserUp",
+		"click .form-datetime": "dateTimePicker"
+	},
+	
+	dateTimePicker: function (event) {
+		$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
 	},
 	
 	signUserUp: function (event) {

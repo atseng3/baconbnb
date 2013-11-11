@@ -3,19 +3,23 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 	
 	events: {
 		"click .tab": "openTab",
+		"click .form_datetime": "dateTimePicker",
 		"click .photoList": "openGallery",
 		"submit form": "submitBooking"
 	},
 	
+	dateTimePicker: function (event) {
+		$(".form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
+	},
+	
 	submitBooking: function (event) {
 		event.preventDefault();
-		// debugger
 		var payload = $(event.currentTarget).serializeJSON();
-		var booking = new Baconbnb.Models.Booking(payload.booking, { parse: true });
+		var booking = new Baconbnb.Models.Booking(payload.booking, { parse: true, pad: this.model });
 		
 		if (!booking.isValid()) {
 			booking.validationError.forEach(function (errorMessage) {
-				this.$("form").prepend(
+				this.$(".booking-form").append(
 					"<div>" + errorMessage + "</div>"
 				);
 			});

@@ -1,3 +1,4 @@
+
 <div class="sidebar-left">
 	<div style='width: 600px;'>
 	  <div id="map" style='width: 600px; height: 700px;'></div>
@@ -10,9 +11,16 @@
 
 			<form class="form-horizontal trip-form">
 				<h6 class="span2 trip-search-title">TRIP</h6>
-				<input size="16" type="text" class="form_datetime" value="Check In">
-				<input size="16" type="text" class="form_datetime" value="Check Out">		
-				<select class="form-horizontal drop-down">
+				<div class="input-append date form_datetime">
+				    <input class="date-search-box" type="text" name="index-search[check_in]" placeholder="Check In">
+				    <span class="add-on"><i class="icon-th"></i></span>
+				</div>
+				<div class="input-append date form_datetime">
+				    <input class="date-search-box" type="text" name="index-search[check_in]" placeholder="Check In">
+				    <span class="add-on"><i class="icon-th"></i></span>
+				</div>
+
+				<select class="form-horizontal drop-down" name="index-search[num_guests]">
 					<option value="1">1 Guest</option>
 					<option value="2">2 Guests</option>
 					<option value="3">3 Guests</option>
@@ -59,15 +67,16 @@
 	</div>
 	<div class="pads-list">
 		<% pads.each(function(pad) { %>
-			<div class="pad-icon icon-image"><%= pad.escape("name")%>
-				<a href="#pads/<%= pad.id %>">
-				<% if (pad.attachments().models[0] != undefined) { %>
-				<img src="<%= pad.attachments().models[0].get("url") %>">
-				<% } else { %>
-				<img src="assets/large.jpg">
-				<% } %>
+			<a href="#pads/<%= pad.id %>">
+				<div class="pad-icon icon-image">
+					<div class="pad-icon-label"><%= pad.escape("name")%></div>
+					<% if (pad.attachments().models[0] != undefined) { %>
+					<img src="<%= pad.attachments().models[0].get("url") %>">
+					<% } else { %>
+					<img src="assets/large.jpg">
+					<% } %>
+				</div>
 			</a>
-			</div>
 		<% }); %>
 	</div>
 </div>

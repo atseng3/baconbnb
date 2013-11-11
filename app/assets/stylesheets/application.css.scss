@@ -8,6 +8,9 @@
  * You're free to add application-wide styles to this file and they'll appear at the top of the
  * compiled file, but it's generally better to create a new file per style scope.
  *
+ *= require jquery.ui.all
+ *= require bootstrap-datetimepicker
+ *= require fullcalendar
  *= require_self
  *= require_tree .
  */
@@ -75,11 +78,12 @@ body {
 
 .sidebar-left {
 	float: left;
+	position: fixed;
 }
 
 .sidebar-right {
 
-	float: left;
+	float: right;
 	width: 820px;
 	.pad-icon {
 		font-size: 140%;
@@ -379,4 +383,9 @@ body {
 
 .amen-checkbox {
 	float: left;
+	margin: 10px;
+}
+
+.date-search-box {
+	width: 130px;
 }
