@@ -37,13 +37,10 @@
 		
 		</div>
 	
-		<span class="glyphicon glyphicon-cloud-upload"></span> Upload
-	
 	  <%= f.label :filepicker_url, "Upload Photos of Your Pad:" %>
 
 	  <%= f.filepicker_field :filepicker_url, multiple: true, dragdrop: true, onchange: "processPhotos()"%>
-	
-		<%= f.full_error :token %>
+		
 		<%= f.button :submit, input_html: { class: "btn btn-primary" } %>
 		</div>
 		<div class="uploadedPhotos">

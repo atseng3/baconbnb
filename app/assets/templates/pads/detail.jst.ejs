@@ -2,38 +2,18 @@
 	<h1 style="margin-left: 30px;"><%= pad.escape("name") %></h1>
 	<div class="pad-address"><b style="margin-left: 30px;"><%= pad.escape("room_type") %></b> ~ <%= pad.escape("address") %></div>
 	  <div class="span8 detail-display">
-			
+
 			<div class="visual">
 				<ul class="nav nav-tabs" id="visualTabs">
-				  <li class="active"><a href="#photos" data-toggle="tab">Photos</a></li>
-				  <li><a href="#photos" data-toggle="tab">Maps</a></li>
-				  <li><a href="#photos" data-toggle="tab">Street View</a></li>
-				  <li><a href="#photos" data-toggle="tab">Calendar</a></li>
+				  <li class="tab" id="photos"><a>Photos</a></li>
+				  <li class="tab" id="maps"><a>Maps</a></li>
+				  <li class="tab" id="street-view"><a>Street View</a></li>
+				  <li class="tab" id="calendar"><a>Calendar</a></li>
 				</ul>
 
-				<div class="tab-content visualContent" id="visualContent">
-					<div class="tab-pane active" id="photos">Photos</div>
-					<div class="tab-pane" id="maps">Maps</div>					
-					<div class="tab-pane" id="street-view">Street View</div>
-					<div class="tab-pane" id="calendar">Calendar</div>										
+				<div class="visualContent" id="visualContent">
 				</div>
 			</div>
-			
-			
-			<!-- <ul class="nav nav-tabs" id="myTab">
-			  <li class="active"><a href="#home" data-toggle="tab">Home</a></li>
-			  <li><a href="#profile" data-toggle="tab">Profile</a></li>
-			  <li><a href="#messages" data-toggle="tab">Messages</a></li>
-			  <li><a href="#settings" data-toggle="tab">Settings</a></li>
-			</ul>
-
-			<div class="tab-content">
-			  <div class="tab-pane active" id="home">...</div>
-			  <div class="tab-pane" id="profile">...</div>
-			  <div class="tab-pane" id="messages">...</div>
-			  <div class="tab-pane" id="settings">...</div>
-			</div> -->
-			
 			
 
 			<div class="details">

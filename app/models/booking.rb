@@ -1,16 +1,16 @@
 class Booking < ActiveRecord::Base
-  attr_accessible :booker_id, :pad_id, :start_date, :end_date
+  attr_accessible :booker_id, :pad_id, :start_date, :end_date, :num_guests
   
   before_validation(on: :create) do
     self.status = "pending"
   end
   
-  validates :booker_id, :pad_id, :start_date, :end_date, :presence => true
+  validates :booker_id, :pad_id, :start_date, :end_date, :num_guests, :presence => true
   
   validates :status, :inclusion => {in: %w(pending approved denied),
             message: "%{value} is not a valid status"}
             
-  validate :overlapping_approved_bookings, on: :create       
+  validate :overlapping_approved_bookings, on: :create
   
   belongs_to :booker, 
              :primary_key => :id, 
@@ -23,6 +23,7 @@ class Booking < ActiveRecord::Base
              :class_name => 'Pad'
              
    def overlapping_bookings?(bookings)
+     puts bookings
      return false if bookings.first.nil?
      bookings.sort_by! { |booking| booking.start_date }
      (bookings.count-2).times do |t|
@@ -37,6 +38,7 @@ class Booking < ActiveRecord::Base
      bookings = self.pad.bookings.map do |booking|
        booking if booking.status == "approved"
      end
+     bookings.delete(nil)
      
      errors.add(:overlap, "That's an overlapping booking!!") if overlapping_bookings?(bookings)
    end

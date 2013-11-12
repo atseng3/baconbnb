@@ -9,12 +9,19 @@ class BookingsController < ApplicationController
   end
 
   def create
-    @booking = Booking.new(params[:booking])
+    @booking = Booking.new(start_date: params[:check_in], 
+                           end_date: params[:check_out], 
+                           num_guests: params[:num_guests], 
+                           pad_id: params[:pad_id], 
+                           booker_id: current_user.id)
 
     if @booking.save
-      redirect_to root_url
+      render :json => @booking
+      # redirect_to root_url
     else
-      render :new
+      render :json => @booking.errors.full_messages, :status => :unprocessable_entity
+      # flash[:errors] = @booking.errors.full_messages
+      # redirect_to root_url
     end
   end
 

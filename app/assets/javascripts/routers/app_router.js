@@ -12,6 +12,8 @@ Baconbnb.AppRouter = Backbone.Router.extend({
 		});
 		this._swapView(detailView);
 		// $(".content").html(detailView.render().$el);
+		detailView.renderFirstTab("#photos");
+		detailView.renderFirstTab("#description");
 	},
 	
 	showAllPads: function () {

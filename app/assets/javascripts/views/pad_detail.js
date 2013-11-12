@@ -2,15 +2,9 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 	template: JST["pads/detail"],
 	
 	events: {
-		"click #visualTabs a": "opentestTabs",
 		"click .tab": "openTab",
 		"click .form_datetime": "dateTimePicker",
 		"submit form": "submitBooking"
-	},
-	
-	opentestTabs: function (event) {
-		event.preventDefault();
-		$(this).tab('show');
 	},
 	
 	dateTimePicker: function (event) {
@@ -25,22 +19,24 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		if (!booking.isValid()) {
 			booking.validationError.forEach(function (errorMessage) {
 				this.$(".booking-form").append(
-					"<div>" + errorMessage + "</div>"
+					"<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button><h5>Oops! Something went wrong!</h5>" + errorMessage + "</div>"
 				);
 			});
 			return;
 		}
+		var that = this;
 		
 		booking.save({}, {
 			success: function () {
-				Baconbnb.bookings.add(booking);
+				alert("success");
+				that.model.bookings().add(booking);
 			},
 			error: function (model, resp) {
-				debugger
+				alert("there was an error!");
 			}
 		});
 		
-		Bacbone.history.navigate("/", { trigger: true });
+		Backbone.history.navigate("/", { trigger: true });
 	},
 	
 	tabViews: {},
@@ -56,7 +52,7 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		parentDiv.children().detach();
 		
 		el.toggleClass("active");
-		
+
 		if(!this.tabViews[el.attr('id')]) {
 			this.tabViews[el.attr('id')] = this.createTabViewForEl(el);
 		}
@@ -102,8 +98,26 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		return tab;
 	},
 	
-	render: function () {
+	renderFirstTab: function (tab){
+		var el = (tab == "#photos" ? $("#photos") : $("#description"));
+		el.parent().children().removeClass("active");
+		if (el.parent().attr("id") == "detailTabs") {
+			var parentDiv = $("#detailContent");
+		} else {
+			var parentDiv = $("#visualContent");
+		}
+		parentDiv.children().detach();
 		
+		el.toggleClass("active");
+
+		if(!this.tabViews[el.attr('id')]) {
+			this.tabViews[el.attr('id')] = this.createTabViewForEl(el);
+		}
+		
+		this.tabViews[el.attr("id")].render(parentDiv);
+	},
+	
+	render: function () {
 		var renderedContent = this.template({
 			pad: this.model,
 			amenities: this.model.amenities

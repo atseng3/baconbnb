@@ -1,6 +1,7 @@
 Baconbnb.Models.Booking = Backbone.Model.extend({
-	// this is not correct
-	urlRoot: "/bookings",
+	urlRoot: function (){
+		return "/pads/" + this.pad.id + "/bookings"
+	},
 	
 	initialize: function (model, options) {
 		this.pad = options.pad;
@@ -18,7 +19,6 @@ Baconbnb.Models.Booking = Backbone.Model.extend({
     var errors = [];
 		var that = this;
 		this.pad.get("approved_bookings").forEach(function(booking) {
-			debugger
 			if (that.overlaps(booking)){
 				errors.push("This pad is already booked in that date range!");
 			}
