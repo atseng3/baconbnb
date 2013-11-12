@@ -27,9 +27,10 @@ class PadsController < ApplicationController
     @pad.attachments.new(params[:attachments].values)
     
     if @pad.save
+      flash[:success] = ["Successully Listed a Pad!"]
       redirect_to root_url
     else
-      flash[:errors] = @pad.errors.full_messages
+      flash[:danger] = @pad.errors.full_messages
       redirect_to root_url
     end
   end

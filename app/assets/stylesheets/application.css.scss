@@ -18,8 +18,13 @@
 
 body {
 	background-color: #F5A9A9;
-	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+//	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-family: 'Lato', sans-serif;
+
 	.carousel-control {
+//		width: 10px;
+//		height: 10px;
+		opacity: 0.1;
 		background-color: none;
 		border: 0;
 	}
@@ -94,7 +99,7 @@ body {
 		margin-top: 20px;
 		margin-bottom: 20px;
 		width: 350px;
-		height: 220px;
+		height: 233px;
 		box-shadow: 0 0 2px #999;	
 	}
 	.pad-icon:hover {
@@ -384,9 +389,39 @@ body {
 
 .amen-checkbox {
 	float: left;
-	margin: 10px;
+	margin: 0px 5px;
 }
 
 .date-search-box {
 	width: 130px;
+}
+
+.heart {
+	margin: 5px;
+	font-size: 50px;
+	position: absolute;
+	z-index: 1;
+	color: black;
+	opacity: 0.1;
+}
+
+.heart:hover {
+	margin: 5px;
+	font-size: 50px;
+	position: absolute;
+	z-index: 1;
+	color: 1;
+	opacity: 0.8;
+}
+
+.carousel-image {
+	z-index: -1;
+}
+
+.glyphicon.glyphicon-chevron-right.index {
+	font-size: 30px;
+}
+
+.glyphicon.glyphicon-chevron-left.index {
+	font-size: 30px;	
 }

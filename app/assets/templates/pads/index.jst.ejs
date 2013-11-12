@@ -69,36 +69,40 @@
 	</div>
 	<div class="pads-list">
 		<% pads.each(function(pad) { %>
-			<a href="#pads/<%= pad.id %>">
+
+
 				<div class="pad-icon icon-image">
 					<div class="heart"><span class="glyphicon glyphicon-heart-empty"></span></div>
+					<a href="#pads/<%= pad.id %>">
 					<div id="carousel-example-generic-<%= pad.id %>" class="carousel slide" data-ride="carousel" style="width: 100%;">
 					
 					  <!-- Wrapper for slides -->
 					  <div class="carousel-inner">						
 							<% if (pad.attachments().models[0] != undefined) { %>
-								<% for (var i = 0; i < pad.attachments().models.length; i++) { %>
+								<% var i = 0 %>
+								<% pad.attachments().each(function(attachment) { %>
 									<% if (i == 0) { %>
 										<div class="item active">
 									<% } else { %>
 										<div class="item">
 									<% } %>
-									<img src="<%= pad.attachments().models[i].get("url") %>">
+									<% i += 1; %>
+									<img src="<%= attachment.get("url") %>">
 									</div>
-									<% } %>
+								<% }); %>
 							<% } else { %>
 								<div class="item active">
-									<img src="assets/large.jpg">
+									<img class="carousel-image" src="assets/large.jpg">
 								</div>
 							<% } %>
 					  </div>
 					
 					  <!-- Controls -->
-					  <a class="left carousel-control" href="#carousel-example-generic-<%= pad.id %>" data-slide="prev" style="width: 50px; height: 50px;">
-					    <span class="glyphicon glyphicon-chevron-left"></span>
+					  <a class="left carousel-control" href="#carousel-example-generic-<%= pad.id %>" data-slide="prev">
+					    <span class="glyphicon glyphicon-chevron-left index"></span>
 					  </a>
 					  <a class="right carousel-control" href="#carousel-example-generic-<%= pad.id %>" data-slide="next">
-					    <span class="glyphicon glyphicon-chevron-right"></span>
+					    <span class="glyphicon glyphicon-chevron-right index"></span>
 					  </a>
 					</div>
 				</div>

@@ -59,7 +59,7 @@
 			<legend>Select Amenities</legend>
 				<% all_amens.each do |amen| %>
 					<input 
-					class="amen-checkbox" type="checkbox" name="amenities[]" id="<%= amen %>" value="<%= amen %>"><label for="<%= amen %>"><%= amen %></label>
+					class="amen-checkbox" type="checkbox" name="amenities[]" id="<%= amen %>" value="<%= amen %>"><label class="amen-checkbox" for="<%= amen %>"><%= amen %></label>
 				<% end %>
 		</fieldset>
 
@@ -71,11 +71,12 @@
 	  <%= f.label :filepicker_url, "Upload Photos of Your Pad:" %>
 
 	  <%= f.filepicker_field :filepicker_url, multiple: true, dragdrop: true, onchange: "processPhotos()"%>
-    <p class="span5">
+		<br>
+    <p>
         By clicking "Save &amp; Continue," you confirm that you accept the <a href="/terms" target="_blank">Terms of Service</a> &amp; <a href="/terms" target="_blank">Privacy Policy</a>.
-    </p>		
+    </p>
 		<!-- <%= f.button :submit, input_html: { class: "btn btn-primary" } %> -->
-		<button class="btn" type="submit">Save & Continue</button>
+		<br><button style="float: left" class="btn" type="submit">Save & Continue</button>
 		</div>
 		<div class="uploadedPhotos">
 		

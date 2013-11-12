@@ -43,12 +43,14 @@ class BookingsController < ApplicationController
   def approve
     @booking = Booking.find(params[:id])
     @booking.approve!
+    flash[:info] = ["You've just approved a booking request!"]
     redirect_to root_url
   end
 
   def deny
     @booking = Booking.find(params[:id])
     @booking.deny!
+    flash[:warning] = ["You've just denied a booking request!"]
     redirect_to root_url
   end  
 end

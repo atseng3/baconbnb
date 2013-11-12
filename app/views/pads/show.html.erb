@@ -1,29 +1,33 @@
-<h2><%= @pad.name %></h2>
-<% pad_owner = User.find(@pad.id) %>
-Listed by <%= pad_owner.f_name + " " + pad_owner.l_name %><br>
-<%= @pad.address %><br>
-
-<div style='width: 800px;'>
-	<div id="map" style='width: 800px; height: 400px;'>
+<div class="container">
+	<% pad_owner = User.find(@pad.id) %>
+	<h1><%= @pad.name %> <small>Listed by <%= pad_owner.f_name + " " + pad_owner.l_name %></small></h1>
+	<h3><%= @pad.address %><br></h3>
+	<div class="well panel-border" style="box-shadow: 2px 2px 3px #666;">
+		<div class="pad-profile-photo pull-right">
+			<img class="img-rounded" src="<%= @pad.attachments.first.url %>" style="box-shadow: 2px 2px 3px #666;">
+		</div>
+		<h3>Description</h3>
+		<%= @pad.description %><br>
+		<h3>Amenities</h3>
+		<% @pad.amenities.each do |amenity| %>
+		<div class="user-amen-list" style="margin: 5px; float: left;">
+		<%= amenity.name%>
+		</div>
+		<% end %><br>
+		<h3>Requests</h3>
+		<% if @pad.bookings.empty? %>
+		You have no bookings!
+		<% end %>
+		<% @pad.bookings.each do |booking| %>
+			<% booker = User.find(booking.booker_id) %>
+			Booking Request by <%= booker.f_name + " " + booker.l_name %><br>
+			<%= "Start Date: " + booking.start_date.to_s %><br>
+			<%= "End Date: " + booking.end_date.to_s %><br>
+			<%= "Status: " + booking.status.to_s %><br>
+			<% if current_user.id == pad_owner.id %>
+				<%= button_to "Approve Request", approve_pad_booking_url(@pad, booking), :method => :put, :class => "btn btn-success"%>
+				<%= button_to "Deny Request", deny_pad_booking_url(@pad, booking), :method => :put, :class => "btn btn-danger" %>
+			<% end %>
+		<% end %>
+	</div>
 </div>
-
-<h4>Description</h4>
-<%= @pad.description %><br>
-
-<h4>Amenities</h4>
-<% @pad.amenities.each do |amenity| %><br>
-<%= amenity.name%><br>
-<% end %>
-
-<h2>Requests</h2>
-<% @pad.bookings.each do |booking| %>
-	<% booker = User.find(booking.booker_id) %>
-	Booking Request by <%= booker.f_name + " " + booker.l_name %><br>
-	<%= "Start Date: " + booking.start_date.to_s %><br>
-	<%= "End Date: " + booking.end_date.to_s %><br>
-	<%= "Status: " + booking.status.to_s %><br>
-	<% if current_user.id == pad_owner.id %>
-		<%= button_to "Approve Request", approve_pad_booking_url(@pad, booking), :method => :put %>
-		<%= button_to "Deny Request", deny_pad_booking_url(@pad, booking), :method => :put %>
-	<% end %>
-<% end %>

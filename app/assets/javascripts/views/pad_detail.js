@@ -19,7 +19,7 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		if (!booking.isValid()) {
 			booking.validationError.forEach(function (errorMessage) {
 				this.$(".booking-form").append(
-					"<div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button><h5>Oops! Something went wrong!</h5>" + errorMessage + "</div>"
+					"<br><div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button>" + errorMessage + "</div>"
 				);
 			});
 			return;
@@ -35,7 +35,7 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 			},
 			error: function (model, resp) {
 				that.$(".booking-form").append(
-					"<div class='alert alert-danger fade in'><button type=button' class='close' data-dismiss='alert' aria-hidden='true'>x</button><Oops! Something went wrong!</h5>" + resp + "</div>"
+					"<div class='alert alert-danger fade in'><button type=button' class='close' data-dismiss='alert' aria-hidden='true'>x</button>" + resp + "</div>"
 				);
 			}
 		});

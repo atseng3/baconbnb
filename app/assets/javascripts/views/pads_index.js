@@ -2,7 +2,13 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
 	template: JST["pads/index"],
 	
 	events: {
-		"click .index-form_datetime": "invokeDatePicker"
+		"click .index-form_datetime": "invokeDatePicker",
+		"click .heart": "heartPad"
+	},
+	
+	heartPad: function (event) {
+		// debugger
+		$(event.target).toggleClass("glyphicon-heart")
 	},
 	
 	invokeDatePicker: function (event) {

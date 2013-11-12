@@ -9,18 +9,7 @@ Baconbnb.Views.Landing = Backbone.View.extend({
 	},
 	
 	dateTimePicker: function (event) {
-		debugger
 		$(".search-form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
-	},
-	
-	signUserUp: function (event) {
-		event.preventDefault();
-		debugger
-	},
-	
-	logUserIn: function (event) {
-		event.preventDefault();
-		debugger
 	},
 	
 	searchLocation: function () {

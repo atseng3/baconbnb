@@ -9,16 +9,18 @@ class SessionsController < ApplicationController
     )
 
     if user.nil?
-      flash[:errors] = ["Credentials were wrong"]
+      flash[:danger] = ["Credentials were wrong"]
       redirect_to root_url
     else
       self.current_user = user
+      flash[:success] = ["Successfully logged in as " + user.f_name + " " + user.l_name]
       redirect_to root_url
     end
   end
 
   def destroy
     logout_current_user!
+    flash[:success] = ["Successfully logged out!"]
     redirect_to root_url
   end
 

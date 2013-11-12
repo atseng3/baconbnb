@@ -14,6 +14,11 @@ class User < ActiveRecord::Base
     :small => "35x35#"
   }, :default_url => "/assets/missing.png"
   
+  has_many :pads, 
+           :primary_key => :id,
+           :foreign_key => :owner_id,
+           :class_name => 'Pad'
+  
   def profile_photo_url
     self.profile_photo.url
   end
