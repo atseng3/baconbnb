@@ -2,9 +2,15 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 	template: JST["pads/detail"],
 	
 	events: {
+		"click #visualTabs a": "opentestTabs",
 		"click .tab": "openTab",
 		"click .form_datetime": "dateTimePicker",
 		"submit form": "submitBooking"
+	},
+	
+	opentestTabs: function (event) {
+		event.preventDefault();
+		$(this).tab('show');
 	},
 	
 	dateTimePicker: function (event) {
