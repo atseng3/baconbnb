@@ -28,11 +28,15 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		
 		booking.save({}, {
 			success: function () {
-				alert("success");
 				that.model.bookings().add(booking);
+				that.$(".booking-form").append(
+					"<div class='alert alert-success fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button><h5>Congrats! You've just successfully submitted a booking!</h5><h6>You will see the booking calendar get updated once the owner makes a response!</h6></div>"
+				);
 			},
 			error: function (model, resp) {
-				alert("there was an error!");
+				that.$(".booking-form").append(
+					"<div class='alert alert-danger fade in'><button type=button' class='close' data-dismiss='alert' aria-hidden='true'>x</button><Oops! Something went wrong!</h5>" + resp + "</div>"
+				);
 			}
 		});
 		
