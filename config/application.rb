@@ -60,5 +60,8 @@ module Baconbnb
     config.assets.version = '1.0'
     
     config.filepicker_rails.api_key = "Aek7mfC9SBmQy7xxM338qz"
+    
+    config.assets.initialize_on_precompile = false
+    
   end
 end
