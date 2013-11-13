@@ -1,5 +1,4 @@
 class BookingsController < ApplicationController
-  # before_filter :require_pad_owner!, :only => [:approve, :deny]
   
   def index
     render :index

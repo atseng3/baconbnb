@@ -4,12 +4,10 @@ class PadsController < ApplicationController
   def index
     @pads = Pad.all
     render 'static_pages/root'
-    # render :index
   end
   
   def show
     @pad = Pad.find(params[:id])
-    # render :json => @pad
     render :show
   end
   

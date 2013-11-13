@@ -1,10 +1,13 @@
 <div class="container">
-	<h2>All of your friends!!</h2>
+	<h1>All of your friends!!</h1>
+	<div class="well panel-border" style="border-radius: 4px;box-shadow: 2px 2px 3px #666;">
 		<ul>
 		<% @users.each do |user| %>
-			<li><img style="width: 30px; height: 30px;" src="<%= user.profile_photo.url(:small) %>">
-			<%= user.f_name + " " + user.l_name %></li><br>
+			<li><h4><img class="img-rounded" style="width: 30px; height: 30px;" src="<%= user.profile_photo.url(:small) %>">
+			<%= link_to user.f_name + " " + user.l_name, user_url(user) %></h4></li><br>
 
 		<% end %>
-		</ul>
+		</ul>		
+	</div>
+
 </div>
