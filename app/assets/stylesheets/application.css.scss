@@ -85,6 +85,19 @@ body {
 	}
 }
 
+.page-container.page-container-fixed {
+	width: 1320px;
+	height: 100%;
+	padding: 50px;
+	margin: auto;
+	.span4.text-copy {
+		margin: 20px;
+		width: 400px;
+		height: 300px;
+		float: left;
+	}
+}
+
 .table.striped.calendar-table {
 	box-shadow: 0 0 2px #999;
 }
