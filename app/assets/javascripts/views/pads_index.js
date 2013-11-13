@@ -2,11 +2,26 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
 	template: JST["pads/index"],
 	
 	events: {
-		"click .index-form_datetime": "invokeDatePicker",
+		"click #date-start": "invokeDatePicker",
+		"click #date-end": "invokeDatePicker",
 		"click .heart": "heartPad",
 		"click .filter-primary-item.span2.home": "searchHome",
 		"click .filter-primary-item.span2.private": "searchPrivate",
-		"click .filter-primary-item.span2.shared": "searchShared"
+		"click .filter-primary-item.span2.shared": "searchShared",
+		"change .form-horizontal.drop-down": "numGuestSearch"
+	},
+	
+	searchHelper: function (searchedPads) {
+		var searchedView = new Baconbnb.Views.SearchView({
+			collection: searchedPads
+		});
+		this._swapView(searchedView);
+	},
+	
+	numGuestSearch: function (event) {
+		val = parseInt($(event.target).val());
+		searchedPads = Baconbnb.pads.where({accomodates: val});
+		this.searchHelper(searchedPads);
 	},
 	
 	searchPrice: function(price) {
@@ -16,37 +31,46 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
 				searchedPads.push(Baconbnb.pads.models[i]);
 			}
 		}
-		var searchView = new Baconbnb.Views.SearchView({
-			collection: searchedPads
-		});
-		this._swapView(searchView);
+		this.searchHelper(searchedPads);
 	},
 	
 	searchShared: function(event) {
 		var searchedPads = Baconbnb.pads.where({room_type: "Shared room"});
-		var searchView = new Baconbnb.Views.SearchView({
-			collection: searchedPads
-		});
-
-		this._swapView(searchView);
+		this.searchHelper(searchedPads);
 	},
 	
 	searchHome: function(event) {
 		var searchedPads = Baconbnb.pads.where({room_type: "Home"});
-		var searchView = new Baconbnb.Views.SearchView({
-			collection: searchedPads
-		});
-
-		this._swapView(searchView);
+		this.searchHelper(searchedPads);
 	},
 	
 	searchPrivate: function(event) {
 		var searchedPads = Baconbnb.pads.where({room_type: "Private room"});
-		var searchView = new Baconbnb.Views.SearchView({
-			collection: searchedPads
+		this.searchHelper(searchedPads);
+	},
+	
+	searchDate: function () {
+		var searchedPads = [];
+		var that = this;
+		Baconbnb.pads.each(function(pad) {
+			var invalid = false;
+			pad.get("approved_bookings").forEach(function(booking) {
+				var start = Date.parse(booking.start_date);
+				var end = Date.parse(booking.end_date);
+				if (that.overlaps(start, end)) {
+					invalid = true;
+					// break;
+				}
+			});
+			if (!invalid) {
+				searchedPads.push(pad);
+			}
 		});
-
-		this._swapView(searchView);
+		this.searchHelper(searchedPads);
+	},
+	
+	overlaps: function (start, end) {
+		return ((this.startDate - end) * (start - this.endDate)) >= 0
 	},
 	
   _swapView: function (newView) {
@@ -59,12 +83,32 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
   },
 	
 	heartPad: function (event) {
-		// debugger
 		$(event.target).toggleClass("glyphicon-heart")
 	},
 	
 	invokeDatePicker: function (event) {
-    $(".index-form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
+		var that = this;
+		var d = event.target;
+		if (d.id == "date-start" && !this.startDate){
+			$(d).datetimepicker('show').on('changeDate', function(ev){
+				$(d).datetimepicker('hide');
+				that.startDate = ev.date.valueOf();
+			});
+		} else {
+			$(d).datetimepicker('show').on('changeDate', function(ev){
+				$(d).datetimepicker('hide');
+				if (that.startDate) {
+					if (ev.date.valueOf() - that.startDate > 0) {
+						that.endDate = ev.date.valueOf();
+						that.searchDate();
+					} else {						
+						$(".trip-form-error-area").html(
+							"<br><div class='alert alert-danger fade in'><button type='button' class='close' data-dismiss='alert' aria-hidden='true'>x</button>Please Input a valid Date!</div>"
+						);
+					}
+				}
+			});
+		}
 	},
 	
   invokeSlider: function(event) {
