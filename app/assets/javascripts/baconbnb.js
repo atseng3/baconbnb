@@ -13,11 +13,6 @@ window.Baconbnb = {
 
 $(document).ready(function(){
   Baconbnb.initialize();
-	// $('#calendar').fullCalendar();
-	// $(".guide").hover(function (){
-	// 	$(this).stop().animate({"opacity": "0.7"}, "slow");
-	// }, function (){
-	// 	$(this).stop().animate({"opacity": "1"}, "flow");
-	// });
+	// $('.alert').fadeOut(3600, "linear");
 });
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20131112011831) do
+ActiveRecord::Schema.define(:version => 20131112224323) do
 
   create_table "amenities", :force => true do |t|
     t.string   "name",       :null => false
@@ -79,7 +79,7 @@ ActiveRecord::Schema.define(:version => 20131112011831) do
     t.string   "neighborhood",    :default => "Marina"
     t.string   "cancellation",    :default => "Flexible"
     t.integer  "neighborhood_id"
-    t.string   "filepicker_url"
+    t.text     "filepicker_url"
     t.integer  "price"
   end
 

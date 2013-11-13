@@ -17,11 +17,18 @@
  */
 
 body {
+	padding-bottom: 70px;
+	h3 {
+		font-family: 'Playfair Display', serif;
+		font-weight: 900;
+		font-style: italic;
+	}
 	background-color: #F5A9A9;
 //	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
 	font-family: 'Lato', sans-serif;
 
 	.carousel-control {
+		
 //		width: 10px;
 //		height: 10px;
 		opacity: 0.1;
@@ -105,10 +112,10 @@ body {
 	.pad-icon:hover {
 		box-shadow: 0 0 4px #333;	
 	}
-	.icon-image {
+	.icon-photo {
 		opacity: 0.9;
 	}
-	.icon-image:hover {
+	.icon-photo:hover {
 		opacity: 1;
 	}
 }
@@ -148,6 +155,23 @@ body {
 				}
 			}
 		}
+		
+		.rating-box {
+			border: 1px solid #dbdbdb;
+			border-radius: 2px;	
+			margin-bottom: 10px;
+			background-color: #fefefe;
+			.rating {
+				text-align: center;
+				border-bottom: 1px solid #dbdbdb;
+				padding: 20px;
+				background-color: #efefef;
+				.stars {
+					color: #E55451;
+					font-size: 40px;
+				}
+			}	
+		}
 
 		.owner {
 			text-align: center;
@@ -172,6 +196,13 @@ body {
 		}	
 	}
 }
+//input[type="text"] .login-email {
+//	border: 0;
+//	background: transparent;
+//}
+//input[type=text]:focus .login-modal {
+//	outline-width: none;
+//}
 
 .row.pagedetail {
 	margin-left: 80px;
@@ -190,8 +221,15 @@ body {
 			border-radius: 2px;
 			padding: 20px;
 			width: 728px;
+			.nav.nav-tabs {
+				margin: 0;
+			}
+			.nav {
+				margin-bottom: 0;
+			}
 //			height: 660px;
 			.visualContent {
+				background: white;
 				padding: 20px;
 				margin: auto;
 			}
@@ -203,6 +241,7 @@ body {
 			border-radius: 2px;
 			padding: 20px;
 			width: 728px;
+			display: inline-block;
 //			height: 660px;
 			.leftbar {
 				float: left;

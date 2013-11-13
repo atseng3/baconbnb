@@ -60,6 +60,8 @@ class Booking < ActiveRecord::Base
      end
      bookings.delete(nil)
      deny = bookings.select { |booking| overlaps?(booking) }
+     p deny
+     p "asdfasdfasdfasdfasdf"
      Booking.transaction do 
        deny.each do |req|
          req.status = "denied"

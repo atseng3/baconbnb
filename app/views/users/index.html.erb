@@ -1,4 +1,10 @@
-<h2>This is the users index page</h2>
-<div style='width: 800px;'>
-	<div id="map" style='width: 800px; height: 400px;'>
+<div class="container">
+	<h2>All of your friends!!</h2>
+		<ul>
+		<% @users.each do |user| %>
+			<li><img style="width: 30px; height: 30px;" src="<%= user.profile_photo.url(:small) %>">
+			<%= user.f_name + " " + user.l_name %></li><br>
+
+		<% end %>
+		</ul>
 </div>

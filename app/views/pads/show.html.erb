@@ -1,8 +1,8 @@
 <div class="container">
 	<% pad_owner = User.find(@pad.id) %>
-	<h1><%= @pad.name %> <small>Listed by <%= pad_owner.f_name + " " + pad_owner.l_name %></small></h1>
-	<h3><%= @pad.address %><br></h3>
-	<div class="well panel-border" style="box-shadow: 2px 2px 3px #666;">
+	<h1><%= link_to @pad.name, "/#pads/" + @pad.id.to_s %> <small>Listed by <%= pad_owner.f_name + " " + pad_owner.l_name %></small></h1>
+	<h4><%= @pad.address %><br></h4>
+	<div class="well panel-border" style="border-radius: 4px;box-shadow: 2px 2px 3px #666;">
 		<div class="pad-profile-photo pull-right">
 			<img class="img-rounded" src="<%= @pad.attachments.first.url %>" style="box-shadow: 2px 2px 3px #666;">
 		</div>
@@ -19,15 +19,29 @@
 		You have no bookings!
 		<% end %>
 		<% @pad.bookings.each do |booking| %>
-			<% booker = User.find(booking.booker_id) %>
-			Booking Request by <%= booker.f_name + " " + booker.l_name %><br>
-			<%= "Start Date: " + booking.start_date.to_s %><br>
-			<%= "End Date: " + booking.end_date.to_s %><br>
-			<%= "Status: " + booking.status.to_s %><br>
-			<% if current_user.id == pad_owner.id %>
-				<%= button_to "Approve Request", approve_pad_booking_url(@pad, booking), :method => :put, :class => "btn btn-success"%>
-				<%= button_to "Deny Request", deny_pad_booking_url(@pad, booking), :method => :put, :class => "btn btn-danger" %>
+			<% if booking.status == "approved" %>
+				<% alert_status = "success" %>
+			<% elsif booking.status == "denied"%>
+				<% alert_status = "danger" %>
+			<% else %>
+				<% alert_status = "warning" %>
 			<% end %>
+			<div class="well alert alert-<%= alert_status %> fade in">
+				<% booker = User.find(booking.booker_id) %>
+				<h4>Booking Request by <%= booker.f_name + " " + booker.l_name %></h4>
+				<% if current_user.id == pad_owner.id %>
+					<% if booking.status == "pending"%>
+						<%= button_to "Approve Request", approve_pad_booking_url(@pad, booking), :method => :put, :class => "btn btn-success pull-right"%><br>
+						<%= button_to "Deny Request", deny_pad_booking_url(@pad, booking), :method => :put, :class => "btn btn-danger pull-right" %>
+						<% end %>
+				<% end %>
+				<p>
+				<%= "Num Guests: " + booking.num_guests.to_s %><br>
+				<%= "Start Date: " + booking.start_date.to_s %><br>
+				<%= "End Date: " + booking.end_date.to_s %><br>
+				<%= "Status: " + booking.status.to_s.upcase %><br>
+				</p>
+			</div>
 		<% end %>
 	</div>
 </div>
