@@ -4,7 +4,7 @@
 	  <div id="map" style='width: 600px; height: 700px;'></div>
 	</div> -->
 	
-	<div style="width: 600px;">
+	<div style="width: 600px; box-shadow: 2px 2px 3px #666; border-radius: 4px;">
 		<div id="map-canvas" style="height: 700px;"/>
 	</div>
 	
@@ -49,17 +49,17 @@
 		
 		<div class="room-search">
 			<h6 class="span2 room-type-search">ROOM TYPE</h6>
-				<div class="filter-primary-item span2" data-name="Entire Home/Apt">
+				<div class="filter-primary-item span2 home" data-name="Entire Home/Apt">
 					<span class="glyphicon glyphicon-home"></span><br>
 					Entire Home/Apt
 				</div>
 			
-				<div class="filter-primary-item span2" data-name="Private Room">
+				<div class="filter-primary-item span2 private" data-name="Private Room">
 					<span class="glyphicon glyphicon-headphones"></span><br>
 					Private Room
 				</div>
 			
-				<div class="filter-primary-item span2" data-name="Shared Room">
+				<div class="filter-primary-item span2 shared" data-name="Shared Room">
 					<span class="glyphicon glyphicon-user"></span>
 					<span class="glyphicon glyphicon-user"></span><br>
 					Shared Room</div><br>
@@ -73,46 +73,7 @@
 		
 	</div>
 	<div class="pads-list">
-		<% pads.each(function(pad) { %>
 
-
-				<div class="pad-icon">
-					<div class="heart"><span class="glyphicon glyphicon-heart-empty"></span></div>
-					<a href="#pads/<%= pad.id %>">
-					<div id="carousel-example-generic-<%= pad.id %>" class="carousel slide" data-ride="carousel" style="width: 100%;">
-					
-					  <!-- Wrapper for slides -->
-					  <div class="carousel-inner">						
-							<% if (pad.attachments().models[0] != undefined) { %>
-								<% var i = 0 %>
-								<% pad.attachments().each(function(attachment) { %>
-									<% if (i == 0) { %>
-										<div class="item active">
-									<% } else { %>
-										<div class="item">
-									<% } %>
-									<% i += 1; %>
-									<img src="<%= attachment.get("url") %>">
-									</div>
-								<% }); %>
-							<% } else { %>
-								<div class="item active">
-									<img class="carousel-image" src="assets/large.jpg">
-								</div>
-							<% } %>
-					  </div>
-					
-					  <!-- Controls -->
-					  <a class="left carousel-control" href="#carousel-example-generic-<%= pad.id %>" data-slide="prev">
-					    <span class="glyphicon glyphicon-chevron-left index"></span>
-					  </a>
-					  <a class="right carousel-control" href="#carousel-example-generic-<%= pad.id %>" data-slide="next">
-					    <span class="glyphicon glyphicon-chevron-right index"></span>
-					  </a>
-					</div>
-				</div>
-			<a>
-		<% }); %>
 	</div>
 </div>
 

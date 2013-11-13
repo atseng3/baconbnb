@@ -20,19 +20,19 @@ Baconbnb.AppRouter = Backbone.Router.extend({
 			collection: Baconbnb.pads
 		});
 		this._swapView(indexView);
-		this.renderMap2();
+		this.renderMap();
 	},
 	
-	renderMap: function () {
-		handler = Gmaps.build('Google');
-		handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
-		  markers = handler.addMarkers( Baconbnb.pads.pluck("gmaps_hash") );
-		  handler.bounds.extendWith(markers);
-		  handler.fitMapToBounds();
-		}); 
-	},
+	// renderMap: function () {
+	// 	handler = Gmaps.build('Google');
+	// 	handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+	// 	  markers = handler.addMarkers( Baconbnb.pads.pluck("gmaps_hash") );
+	// 	  handler.bounds.extendWith(markers);
+	// 	  handler.fitMapToBounds();
+	// 	}); 
+	// },
 	
-  renderMap2: function () {
+  renderMap: function () {
     var mapOptions = {
       center: new google.maps.LatLng(37.7362715, -122.4277995),
       zoom: 12,
@@ -49,7 +49,6 @@ Baconbnb.AppRouter = Backbone.Router.extend({
 				position: new google.maps.LatLng(pad.get("latitude"), pad.get("longitude")),
 				map: map
 			});
-			// debugger
 			google.maps.event.addListener(marker, "click", (function(marker, i) {
 				return function(){
 					infoWindow.setContent(Baconbnb.pads.models[i].get("name"));

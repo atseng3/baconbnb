@@ -266,6 +266,7 @@ body {
 	color: white;
 	position: absolute;
 	z-index: 1;
+	text-shadow: 2px 2px black;
 }
 
 .amenity {
@@ -463,4 +464,8 @@ body {
 
 .glyphicon.glyphicon-chevron-left.index {
 	font-size: 30px;	
+}
+
+.gmnoprint img {
+    max-width: none; 
 }
