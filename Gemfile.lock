@@ -78,6 +78,9 @@ GEM
     erubis (2.7.0)
     execjs (1.4.0)
       multi_json (~> 1.0)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     filepicker-rails (1.0.0)
       rails (>= 3.2)
     geocoder (1.1.8)
@@ -180,6 +183,7 @@ DEPENDENCIES
   coffee-rails (~> 3.2.1)
   country_select
   debugger
+  figaro
   filepicker-rails
   geocoder
   gmaps4rails

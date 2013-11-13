@@ -18,6 +18,11 @@ class User < ActiveRecord::Base
            :primary_key => :id,
            :foreign_key => :owner_id,
            :class_name => 'Pad'
+           
+  has_many :bookings,
+           :primary_key => :id,
+           :foreign_key => :booker_id,
+           :class_name => 'Booking'
   
   def profile_photo_url
     self.profile_photo.url

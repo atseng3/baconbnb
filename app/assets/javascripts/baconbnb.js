@@ -13,6 +13,9 @@ window.Baconbnb = {
 
 $(document).ready(function(){
   Baconbnb.initialize();
-	// $('.alert').fadeOut(3600, "linear");
+	$(".navbar-form.navbar-left").submit(function (event) {
+		event.preventDefault();
+		window.location.href="/#index";
+	});
 });
 

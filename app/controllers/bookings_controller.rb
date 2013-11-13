@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   # before_filter :require_pad_owner!, :only => [:approve, :deny]
   
+  def index
+    render :index
+  end
+  
   def new
     @pad = Pad.find(params[:pad_id])
     @booking = Booking.new
@@ -17,41 +21,22 @@ class BookingsController < ApplicationController
 
     if @booking.save
       render :json => @booking
-      # redirect_to root_url
     else
       render :json => @booking.errors.full_messages, :status => :unprocessable_entity
-      # flash[:errors] = @booking.errors.full_messages
-      # redirect_to root_url
     end
   end
 
-  # def edit
-  #   @booking = Booking.find(params[:id])
-  #   render :edit
-  # end
-
-  # def update
-  #   @booking = Booking.find(params[:id])
-  #   raise "you can't edit an unexisting booking!" unless @booking.persisted?
-  #   if @booking.update_attributes(params[:booking])
-  #     redirect_to cat_url(@booking.cat)
-  #   else
-  #     render :edit
-  #   end
-  # end
-
   def approve
-    puts params
     @booking = Booking.find(params[:id])
     @booking.approve!
-    flash[:info] = ["You've just approved a booking request!"]
-    redirect_to root_url
+    flash[:success] = ["You've just approved a booking request!"]
+    redirect_to pad_url(@booking.pad)
   end
 
   def deny
     @booking = Booking.find(params[:id])
     @booking.deny!
     flash[:success] = ["You've just denied a booking request!"]
-    redirect_to root_url
+    redirect_to pad_url(@booking.pad)
   end  
 end

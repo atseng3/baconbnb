@@ -2,14 +2,14 @@
 
 <div id="sliderFrame" style="box-shadow: 2px 2px 3px #666;">
 	    <div id="slider">
-				<% pad.attachments().each(function (attachment) { %>
-				<a><img src="<%= attachment.get("url") %>"></a>
+				<% attachments.each(function (attachment) { %>
+				<a><img src="<%= attachment.get('url') %>"></a>
 				<% }); %>
 	    </div>
 	    <!--thumbnails-->
 	    <div id="thumbs">
-				<% pad.attachments().each(function (attachment){ %>
-				<div class="thumb"><img src="<%= attachment.get("url") %>"></div>					
+				<% attachments.each(function (attachment){ %>
+				<div class="thumb"><img src="<%= attachment.get('url') %>"></div>					
 				<% });%>
 	    </div>
 

@@ -4,7 +4,6 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
 	events: {
 		"click #date-start": "invokeDatePicker",
 		"click #date-end": "invokeDatePicker",
-		"click .heart": "heartPad",
 		"click .filter-primary-item.span2.home": "searchHome",
 		"click .filter-primary-item.span2.private": "searchPrivate",
 		"click .filter-primary-item.span2.shared": "searchShared",
@@ -82,9 +81,9 @@ Baconbnb.Views.PadsIndex = Backbone.View.extend({
     $(".pads-list").html(newView.render().$el);
   },
 	
-	heartPad: function (event) {
-		$(event.target).toggleClass("glyphicon-heart")
-	},
+	// heartPad: function (event) {
+	// 	$(event.target).toggleClass("glyphicon-heart")
+	// },
 	
 	invokeDatePicker: function (event) {
 		var that = this;

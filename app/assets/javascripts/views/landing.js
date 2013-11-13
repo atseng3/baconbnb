@@ -5,17 +5,29 @@ Baconbnb.Views.Landing = Backbone.View.extend({
 		"submit form": "searchLocation",
 		"submit .login-form": "logUserIn",
 		"click .signup-user": "signUserUp",
-		"click .date-search-box": "dateTimePicker"
+		"click .date-search-box": "dateTimePicker",
+		"mouseenter .cities-icon": "mouseEnterCity",
+		"mouseleave .cities-icon": "mouseLeaveCity"
+	},
+	
+	mouseLeaveCity: function(event) {
+		event.preventDefault();
+		$(event.target).siblings().css("opacity", 0.1);
+	},
+	
+	mouseEnterCity: function(event) {
+		event.preventDefault();
+		$(event.target).siblings().css("opacity", 1);
 	},
 	
 	dateTimePicker: function (event) {
 		$(".search-form_datetime").datetimepicker({format: 'yyyy-mm-dd'});
 	},
 	
-	searchLocation: function () {
+	searchLocation: function (event) {
 		event.preventDefault();
 		
-		Backbone.history.navigate("index", { trigger: true });
+		Backbone.history.navigate("#index", { trigger: true });
 	},
 	
 	render: function () {

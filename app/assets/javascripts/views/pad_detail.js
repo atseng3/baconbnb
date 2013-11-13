@@ -1,6 +1,10 @@
 Baconbnb.Views.PadDetail = Backbone.View.extend({
 	template: JST["pads/detail"],
 	
+	initialize: function () {
+		this.tabViews = {};
+	},
+	
 	events: {
 		"click .tab": "openTab",
 		"click .form_datetime": "dateTimePicker",
@@ -39,11 +43,9 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 				);
 			}
 		});
-		
+		// window.location.href="/";
 		Backbone.history.navigate("/", { trigger: true });
 	},
-	
-	tabViews: {},
 	
 	openTab: function (event) {
 		var el = $(event.currentTarget);
@@ -62,6 +64,7 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		}
 		
 		this.tabViews[el.attr("id")].render(parentDiv);
+		imageSlider.reload();
 	},
 	
 	createTabViewForEl: function (el) {
@@ -117,8 +120,8 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		if(!this.tabViews[el.attr('id')]) {
 			this.tabViews[el.attr('id')] = this.createTabViewForEl(el);
 		}
-		
-		this.tabViews[el.attr("id")].render(parentDiv);
+
+		this.tabViews[el.attr("id")].render(parentDiv);		
 	},
 	
 	render: function () {

@@ -17,5 +17,7 @@ Baconbnb::Application.routes.draw do
   
   resources :amenities, :only => [:create]
   
+  resources :static_pages, :only => [:index]
+  
   root :to => "pads#index"
 end

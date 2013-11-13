@@ -36,9 +36,9 @@
 						<li class="dropdown">
 							<a class="dropdown-toggle" data-toggle="dropdown" href="/">Browse<span class="caret"></span></a>
 							<ul class="dropdown-menu">
-								<li><%= link_to "Popular", "/" %></li>
+								<li><%= link_to "Popular", "/#index" %></li>
 								<li><%= link_to "Friends", users_url %></li>
-								<li><%= link_to "Neighborhoods", "/" %></li>
+								<li><%= link_to "Neighborhoods", "/#index" %></li>
 							</ul>
 						</li>
 					</ul>
@@ -51,7 +51,7 @@
 									<a class="dropdown-toggle" data-toggle="dropdown" href="/"><%= current_user.f_name + " " + current_user.l_name %><span class="caret"></span></a>
 									<ul class="dropdown-menu">
 										<li><%= link_to "My Listings", user_url(current_user)%></li>
-										<li><%= link_to "My Trips", "/" %></li>
+										<li><%= link_to "My Trips", static_pages_url %></li>
 										<li><%= link_to "Logout", session_url, :method => :delete %></li>
 									</ul>
 								</li>
@@ -71,7 +71,11 @@
 		<% flash.each do |k, v| %>
 		<div class="alert alert-<%= k %> fade in">
 		  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-		  <h4><%= k %></h4>
+			<% if k == :danger %>
+				<h4>Oops! Something went wrong!</h4>
+			<% else %>
+			  <h4><%= k %></h4>
+			<% end %>
 			<p>
 					<%= v[0] %><br>
 		  </p>

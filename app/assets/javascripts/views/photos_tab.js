@@ -7,7 +7,7 @@ Baconbnb.Views.PhotosTab = Backbone.View.extend({
 	
 	render: function (targetEl) {
 		var renderedContent = this.template({
-			pad: this.pad
+			attachments: this.pad.attachments()
 		})
 		this.$el.html(renderedContent);
 		this.$el.appendTo(targetEl);
