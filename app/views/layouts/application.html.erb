@@ -53,8 +53,8 @@
 									</ul>
 								</li>
 							<% else %>
-								<li><a href="#" class="signup-link" data-toggle="modal" data-target="#mySignupModal">Sign Up</a></li>
-								<li><a href="#" class="login-link" data-toggle="modal" data-target="#myLoginModal">Log In</a></li>
+								<li data-toggle="tooltip" title="Sign Up!"><a href="#" class="signup-link" data-toggle="modal" data-target="#mySignupModal">Sign Up</a></li>
+								<li data-toggle="tooltip" title="Log In with Demo Account!"><a href="#" class="login-link" data-toggle="modal" data-target="#myLoginModal">Log In</a></li>
 							<% end %>
 							<li><%= link_to "Help", "#"%></li>
 							<li><button class="btn navbar-btn" type="button" onclick="window.location.href='/pads/new'">LIST YOUR SPACE</button></li>
@@ -175,7 +175,7 @@
 				  <input
 				     id="user_password"
 				     name="user[password]"
-				     type="password">
+				     type="password" value="password">
 				  <br>
 	      </div>
 	      <div class="modal-footer">

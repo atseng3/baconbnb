@@ -90,12 +90,13 @@ body {
 //		opacity: 1;
 //	}
 	.cities-icon {
+		border-radius: 4px;
 		box-shadow: 0 0 2px #999;	
-		opacity: 0.9;
+		opacity: 1;
 	}
 	.cities-icon:hover {
 		box-shadow: 0 0 4px #333;	
-		opacity: 1;
+		opacity: 0.8;
 	}
 }
 
@@ -457,6 +458,14 @@ body {
 	width: 130px;
 }
 
+.search-form_datetime {
+	margin-bottom: 0 !important;
+}
+
+.form-horizontal.drop-down {
+	margin-bottom: 0 !important;
+}
+
 .heart {
 	margin: 5px;
 	font-size: 50px;
@@ -489,4 +498,8 @@ body {
 
 .gmnoprint img {
     max-width: none; 
+}
+
+.fc-event-inner {
+	height: 50px;
 }
