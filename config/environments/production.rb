@@ -68,8 +68,8 @@ Baconbnb::Application.configure do
     :storage => :s3,
     :s3_credentials => {
       :bucket => "baconbnbstorage",
-      :access_key_id => "AKIAJQWUPNFLK2UG25XA",
-      :secret_access_key => "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",
+      :access_key_id => ENV["PAPERCLIP_ACCESS_KEY_ID"],
+      :secret_access_key => ENV["PAPERCLIP_SERECT_ACCESS_KEY"],
       :s3_host_name => 's3-us-west-2.amazonaws.com' # or whatever your region host name is
     }
   }
