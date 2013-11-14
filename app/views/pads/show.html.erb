@@ -1,5 +1,5 @@
 <div class="container">
-	<% pad_owner = User.find(@pad.id) %>
+	<% pad_owner = User.find(@pad.owner.id) %>
 	<h1><%= link_to @pad.name, "/#pads/" + @pad.id.to_s %> <small>Listed by <%= pad_owner.f_name + " " + pad_owner.l_name %></small></h1>
 	<h4><%= @pad.address %><br></h4>
 	<div class="well panel-border" style="border-radius: 4px;box-shadow: 2px 2px 3px #666;">

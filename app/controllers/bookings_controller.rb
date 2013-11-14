@@ -19,11 +19,13 @@ class BookingsController < ApplicationController
                            booker_id: current_user.id)
 
     if @booking.save
-      flash[:success] = ["You successfully made a booking!"]
-      redirect_to pad_url(@booking.pad)
+      # flash[:success] = ["You successfully made a booking!"]
+      # redirect_to pad_url(@booking.pad)
+      render :json => @booking
     else
-      flash[:danger] = @booking.errors.full_messages
-      redirect_to pad_url(@booking.pad)
+      # flash[:danger] = @booking.errors.full_messages
+      # redirect_to pad_url(@booking.pad)
+      render :json => @booking.erros.full_messages
     end
   end
 
