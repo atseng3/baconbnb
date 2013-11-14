@@ -82,9 +82,9 @@
 		
 
 	<script type="application/json" id="bootstrapped_pads_json">
-		{ "pads": <%= Pad.all.to_json(:methods => :gmaps_hash).html_safe %> }
+		{ "pads": <%= Pad.includes(:amenities, :attachments, :bookings, :owner).to_json.html_safe %> }
 	</script>
-
+	
 <%= yield %>
 
 <!-- <div id="footer">

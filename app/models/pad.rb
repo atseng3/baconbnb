@@ -34,7 +34,11 @@ class Pad < ActiveRecord::Base
   has_many :attachments, :inverse_of => :pad, dependent: :destroy
     
   def approved_bookings
-    self.bookings.where(status: "approved")
+    if self.bookings.loaded?
+      self.bookings.select { |booking| booking.status == "approved" }
+    else
+      self.bookings.where(status: "approved")
+    end
   end
 
   def as_json(options)
