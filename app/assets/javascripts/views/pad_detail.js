@@ -63,7 +63,7 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		}
 		
 		this.tabViews[el.attr("id")].render(parentDiv);
-		imageSlider.reload();
+		// imageSlider.reload();
 	},
 	
 	createTabViewForEl: function (el) {
@@ -121,6 +121,7 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 		}
 
 		this.tabViews[el.attr("id")].render(parentDiv);		
+		// imageSlider.reload();
 	},
 	
 	render: function () {

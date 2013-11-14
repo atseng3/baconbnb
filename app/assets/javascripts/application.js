@@ -18,7 +18,8 @@
 //= require bootstrap-datetimepicker
 //= require backbone
 //= require fullcalendar
-//= require jquery.ui.all
+//= require jquery.ui.slider
+//= require jquery.ui.tooltip
 //= require jquery.serializeJSON
 //= require js-image-slider
 //= require baconbnb

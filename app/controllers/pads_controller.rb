@@ -26,10 +26,10 @@ class PadsController < ApplicationController
     
     if @pad.save
       flash[:success] = ["Successully Listed a Pad!"]
-      redirect_to root_url
+      redirect_to user_url(current_user)
     else
       flash[:danger] = @pad.errors.full_messages
-      redirect_to root_url
+      redirect_to user_url(current_user)
     end
   end
 end

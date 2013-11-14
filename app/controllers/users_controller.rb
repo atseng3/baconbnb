@@ -18,6 +18,22 @@ class UsersController < ApplicationController
       redirect_to root_url
     end
   end
+  
+  def edit
+    @user = User.find(params[:id])
+    render :edit
+  end
+  
+  def update
+    @user = User.find(params[:id])
+    if @user.update_attributes(params[:user])
+      flash[:success] = ["You've successfully updated your profile!"]
+      redirect_to user_url(@user)
+    else
+      flash[:danger] = @user.errors.full_messages
+      redirect_to user_url(@user)
+    end
+  end
 
   def new
     @user = User.new

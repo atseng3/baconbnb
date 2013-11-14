@@ -57,7 +57,7 @@
 		<%= f.input :room_type %>		
 		<fieldset class="group">
 			<legend>Select Amenities</legend>
-				<% all_amens.each_with_index do |amen, index| %>
+				<% all_amens.each do |amen| %>
 					<input 
 					class="amen-checkbox" type="checkbox" name="amenities[]" id="<%= amen %>" value="<%= amen %>"><label class="amen-checkbox" for="<%= amen %>"><%= amen %></label>
 				<% end %>

@@ -1,5 +1,5 @@
 Baconbnb::Application.routes.draw do
-  resources :users, :only => [:create, :new, :show, :index]
+  resources :users, :only => [:create, :new, :show, :index, :edit, :update]
   resource :session, :only => [:create, :destroy, :new]
   
   resources :pads do 

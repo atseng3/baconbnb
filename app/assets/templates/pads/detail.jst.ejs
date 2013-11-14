@@ -102,7 +102,7 @@
 						<img class="img-rounded" src=<%= pad.owner().get("profile_photo_url") %>><br>
 					</div>
 					<div class="owner-info">
-					Listed by: <%= pad.owner().get("f_name") %> <%= pad.owner().get("l_name") %><br>
+					Listed by: <a href="/users/<%= pad.owner.id %>"><%= pad.owner().get("f_name") %> <%= pad.owner().get("l_name") %></a><br>
 					Response Rate: 100%<br>
 					Response Time: within a few hours<br>
 					Calendar Updated: a week ago<br>

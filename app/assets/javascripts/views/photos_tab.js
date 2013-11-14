@@ -11,5 +11,6 @@ Baconbnb.Views.PhotosTab = Backbone.View.extend({
 		})
 		this.$el.html(renderedContent);
 		this.$el.appendTo(targetEl);
+		imageSlider.reload();
 	}
 });

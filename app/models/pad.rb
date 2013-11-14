@@ -21,13 +21,6 @@ class Pad < ActiveRecord::Base
            :class_name => 'Booking'
            
   has_many :booked_users, :through => :bookings, :source => :booker
-          
-  # has_many :pad_amenities, 
-  #          :primary_key => :id,
-  #          :foreign_key => :pad_id, 
-  #          :class_name => 'PadAmenity'
-           
-  # has_many :amenities, :through => :pad_amenities, :source => :amenity
   
   has_many :amenities, :inverse_of => :pad, dependent: :destroy
   
@@ -38,35 +31,13 @@ class Pad < ActiveRecord::Base
              
   has_many :photos
   
-  # has_many :pad_attachments
-  
-  # has_many :attachments, :through => :pad_attachments, :source => :attachment
   has_many :attachments, :inverse_of => :pad, dependent: :destroy
-  
-  # def available?(date)
-  #   self.bookings.each do |booking|
-  #     if (booking.start_date..booking.end_date).cover?(date)
-  #       return false
-  #     end
-  #   end
-  #   true
-  # end
-  
+    
   def approved_bookings
     self.bookings.where(status: "approved")
   end
-  
-  def gmaps_hash
-    hash = Gmaps4rails.build_markers([self]) do |pad, marker|
-      marker.lat pad.latitude
-      marker.lng pad.longitude
-      marker.infowindow pad.name
-      marker.json({ name: pad.name })
-    end
-    hash[0]
-  end
 
   def as_json(options)
-    super(:include => [:amenities, :attachments, :bookings, {:owner => {:methods => [:profile_photo_url]}}], :methods => [:gmaps_hash, :approved_bookings])
+    super(:include => [:amenities, :attachments, :bookings, {:owner => {:methods => [:profile_photo_url]}}], :methods => [:approved_bookings])
   end
 end
