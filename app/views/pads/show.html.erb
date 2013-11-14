@@ -28,7 +28,7 @@
 			<% end %>
 			<div class="well alert alert-<%= alert_status %> fade in">
 				<% booker = User.find(booking.booker_id) %>
-				<h4>Booking Request by <%= booker.f_name + " " + booker.l_name %></h4>
+				<h4>Booking Request by <img style="width: 30px; height: 30px;" src="<%= booker.profile_photo.url(:small) %>"> <%= booker.f_name + " " + booker.l_name %></h4>
 				<% if current_user.id == pad_owner.id %>
 					<% if booking.status == "pending"%>
 						<%= button_to "Approve Request", approve_pad_booking_url(@pad, booking), :method => :put, :class => "btn btn-success pull-right"%><br>

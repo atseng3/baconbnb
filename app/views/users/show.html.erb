@@ -6,7 +6,7 @@
 		</div>
 		<% @user.pads.each do |pad| %>
 			<div class="row well" style="box-shadow: 0 0 2px #999; padding: 20px; margin-left: 20px; width: 730px;">
-				<div class="span3" style="font-size: 20px; margin-left: 5px"><%= link_to pad.name, "/#pads/" + pad.id.to_s %></div>
+				<div class="span3" style="font-size: 20px; margin-left: 5px"><b><%= link_to pad.name, "/#pads/" + pad.id.to_s %></b></div>
 				<div class="span3" style="font-size: 17px;"><%= pad.address %></div>
 				<a href="/pads/<%= pad.id %>"><button class="btn pull-right">Manage</button></a>
 			</div>
