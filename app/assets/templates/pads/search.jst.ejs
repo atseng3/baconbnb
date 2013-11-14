@@ -1,6 +1,6 @@
 <% pads.forEach(function(pad) { %>
 		<div class="pad-icon">
-			<div class="heart"><span class="glyphicon glyphicon-heart-empty"></span></div>
+			<!-- <div class="heart"><span class="glyphicon glyphicon-heart-empty"></span></div> -->
 			<a href="#pads/<%= pad.id %>">
 			<div id="carousel-example-generic-<%= pad.id %>" class="carousel slide" data-ride="carousel" style="width: 100%;">
 			
@@ -15,7 +15,10 @@
 								<div class="item">
 							<% } %>
 							<% i += 1; %>
-							<img src="<%= attachment.get("url") %>">
+							<img src="<%= attachment.get('url') %>">
+				      <div class="carousel-caption pad-names">
+				        <%= pad.get("name")%>
+				      </div>
 							</div>
 						<% }); %>
 					<% } else { %>

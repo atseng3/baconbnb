@@ -15,6 +15,7 @@ module SessionsHelper
 
   def require_current_user!
     if current_user.nil?
+      p "oawiejfoajweofjaoweijfoaiwjefoaijwefoij"
       flash[:danger] = ["Please Log In to Continue"]
       redirect_to root_url
     end

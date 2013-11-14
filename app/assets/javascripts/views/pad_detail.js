@@ -38,13 +38,12 @@ Baconbnb.Views.PadDetail = Backbone.View.extend({
 				);
 			},
 			error: function (model, resp) {
+				debugger
 				that.$(".booking-form").append(
-					"<div class='alert alert-danger fade in'><button type=button' class='close' data-dismiss='alert' aria-hidden='true'>x</button>" + resp + "</div>"
+					"<div class='alert alert-danger fade in'><button type=button' class='close' data-dismiss='alert' aria-hidden='true'>x</button>Please Log In to Continue!</div>"
 				);
 			}
 		});
-		// window.location.href="/";
-		Backbone.history.navigate("/", { trigger: true });
 	},
 	
 	openTab: function (event) {

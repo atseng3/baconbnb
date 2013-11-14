@@ -22,10 +22,10 @@
 
 			<div class="visual">
 				<ul class="nav nav-tabs" id="visualTabs">
-				  <li class="tab" id="photos"><a>Photos</a></li>
-				  <li class="tab" id="maps"><a>Maps</a></li>
-				  <li class="tab" id="street-view"><a>Street View</a></li>
-				  <li class="tab" id="calendar"><a>Calendar</a></li>
+				  <li class="tab" id="photos" data-toggle="tooltip" title="Click Me!"><a>Photos</a></li>
+				  <li class="tab" id="maps" data-toggle="tooltip" title="Click Me!"><a>Maps</a></li>
+				  <li class="tab" id="street-view" data-toggle="tooltip" title="Click Me!"><a>Street View</a></li>
+				  <li class="tab" id="calendar" data-toggle="tooltip" title="Click Me!"><a>Calendar</a></li>
 				</ul>
 
 				<div class="visualContent" id="visualContent">
@@ -35,8 +35,8 @@
 
 			<div class="details">
 				<ul id="detailTabs" class="tabs nav nav-tabs">
-					<li class="tab" id="description"><a>Description</a></li>
-					<li class="tab" id="amenities"><a>Amenities</a></li>
+					<li class="tab" id="description" data-toggle="tooltip" title="Click Me!"><a>Description</a></li>
+					<li class="tab" id="amenities" data-toggle="tooltip" title="Click Me!"><a>Amenities</a></li>
 				</ul>
 
 				<div class="detailContent" id="detailContent">
@@ -54,24 +54,26 @@
 							<label class="from">From</label><br>
 							<div class="price">$<%= pad.get("price") %></div><br>
 							
-							<div class="input-append date form_datetime">
+							<div class="input-append date form_datetime" data-toggle="tooltip" title="Select Check In Date!">
 							    <input class="date-search-box" type="text" name="booking[check_in]" placeholder="Check In">
 							    <span class="add-on"><i class="icon-th"></i></span>
 							</div>
 							
-							<div class="input-append date form_datetime">
+							<div class="input-append date form_datetime" data-toggle="tooltip" title="Select Check Out Date!">
 							    <input class="date-search-box" type="text" name="booking[check_out]" placeholder="Check Out">
 							    <span class="add-on"><i class="icon-th"></i></span>
 							</div>
 			
-							<input 
+							<input
+							  data-toggle="tooltip" 
+								title="Select Guests!"
 								type="number" 
 								name="booking[num_guests]"
 								value="1"
 								placeholder="1 Guest"><br>
 						</div>
 				
-						<div class="book-btn">			
+						<div class="book-btn" data-toggle="tooltip" title="Select an available date and book!">
 							<button type="submit" class="btn btn-primary book-btn">BOOK</button>
 						</div>
 					</form>
@@ -96,5 +98,5 @@
 					</div>
 				</div>
 			</div>
-		</div>
+		</div>		
 </div>

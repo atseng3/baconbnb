@@ -1,5 +1,5 @@
 class BookingsController < ApplicationController
-  
+  before_filter :require_current_user!, :only => [:create]
   def index
     render :index
   end
@@ -19,9 +19,11 @@ class BookingsController < ApplicationController
                            booker_id: current_user.id)
 
     if @booking.save
-      render :json => @booking
+      flash[:success] = ["You successfully made a booking!"]
+      redirect_to pad_url(@booking.pad)
     else
-      render :json => @booking.errors.full_messages, :status => :unprocessable_entity
+      flash[:danger] = @booking.errors.full_messages
+      redirect_to pad_url(@booking.pad)
     end
   end
 
