@@ -1,4 +1,5 @@
 # Baconbnb
+Welcome to Baconbnb!!
 - users -- signup/signin/signout -- use devise?
 - omniauth -- allow users to signin via facebook
 
