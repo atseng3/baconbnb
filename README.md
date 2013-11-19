@@ -16,12 +16,15 @@ Features include:
   * Booking calendar 
   * Description from owner
   * Amenities that come with this pad.
-### Book
 
+### Book
+ * Once you see a pad that you like, log in, select an available date and book! Please input valid dates!
+ * Your booking will show up on the calendar once the booking is approved by the pad owner.
+### Manage
+ * 
 ### List
 List a pad, no bloody apartments please!
-### Manage
-Manage your bookings
+
 ### Rate
 Rate your stay!
 
