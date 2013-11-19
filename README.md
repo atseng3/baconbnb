@@ -1,17 +1,42 @@
 # Baconbnb
-- users -- signup/signin/signout -- use devise?
-- omniauth -- allow users to signin via facebook
+Welcome to [Baconbnb](http://www.baconbnb.com)!!
+This is my faithful clone of the popular site Airbnb.
 
-- pads -- amenities/
-- pads -- listing a space
-- booking -- users can book a pad for dates
+Features include: 
+### Search
+Search for pads in San Francisco! 
+### Map
+Use the map to find pads!
+### Explore
+Explore pad details!
+### List
+List a pad, no bloody apartments please!
+### Book
+Book a pad!
+### Manage
+Manage your bookings
+### Rate
+Rate your stay!
 
-- neighborhood -- pads belongs_to neighborhoods
+##Technologies Used
+These technologies were used to create Baconbnb:
+* Ruby on Rails
+* Backbone.js
+* jQuery
+* AJAX
+* SQL
+* HTML5
+* CSS3
+* Heroku
+* Google Maps API
+* Amazon AWS
+* RSpec
+* Capybara
+* Factory Girl
+* Faker
+* Paperclip
+* Filepicker
+* Figaro
 
-- search -- search on address/checkin/checkout/#guests
-- street view -- on show page
-- map -- pads index/pad show
-- pics -- list pads with pics
-
-- reviews
-- likes
+### Talk to Me!!
+Baconbnb will always be a work in progress. Please feel free to send comments or suggestions to atseng3[at]gmail[dot]com.
