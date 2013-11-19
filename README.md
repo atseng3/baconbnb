@@ -3,11 +3,13 @@ Welcome to [Baconbnb](http://www.baconbnb.com)!!
 This is my faithful clone of the popular site Airbnb.
 
 Features include: 
+
 ### Search/Filter
  * Search from 15 awesome pads listed in San Francisco. 
  * Play around with the date, room-type and price filters. Please input valid dates!
  * Click on the arrow keys on each apartment in the map view to scroll through images instantly!
  * Click on Google Maps markers to check out where pads are located!
+
 ### Explore
  * Explore through all the details that pads have, including:
   * LOTS of photos
@@ -26,10 +28,11 @@ Features include:
  * Click into "My Trips" to see where you've successully booked your next trip!
 
 ### List
-List a pad, no bloody apartments please!
+ * Click "LIST YOUR SPACE" to post your pad, include many amenities and many photos!!
+ * Remember to change the default "Private room" if your room is not a private room!
 
 ### Rate
-Rate your stay!
+ * Once you've completed your stay, please rate your host! 
 
 ##Technologies Used
 These technologies were used to create Baconbnb:
