@@ -3,8 +3,8 @@ Welcome to [Baconbnb](http://www.baconbnb.com)!!
 This is my faithful clone of the popular site Airbnb.
 
 Features include: 
-### Search
-Search for pads in San Francisco! 
+### Search/Filter
+Search from 15 awesome pads listed in San Francisco. Feel free to play around with the date, room-type and price filters. Please input valid dates!
 ### Map
 Use the map to find pads!
 ### Explore
