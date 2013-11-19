@@ -20,8 +20,11 @@ Features include:
 ### Book
  * Once you see a pad that you like, log in, select an available date and book! Please input valid dates!
  * Your booking will show up on the calendar once the booking is approved by the pad owner.
+
 ### Manage
- * 
+ * Once you log in, click into "My Listings" to manage the bookings for the pads that you've listed.
+ * Click into "My Trips" to see where you've successully booked your next trip!
+
 ### List
 List a pad, no bloody apartments please!
 
