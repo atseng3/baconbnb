@@ -4,15 +4,20 @@ This is my faithful clone of the popular site Airbnb.
 
 Features include: 
 ### Search/Filter
-Search from 15 awesome pads listed in San Francisco. Feel free to play around with the date, room-type and price filters. Please input valid dates!
-### Map
-Use the map to find pads!
+ * Search from 15 awesome pads listed in San Francisco. 
+ * Play around with the date, room-type and price filters. Please input valid dates!
+ * Click on the arrow keys on each apartment in the map view to scroll through images instantly!
+ * Click on Google Maps markers to check out where pads are located!
 ### Explore
-Explore pad details!
+ * Explore through all the details that pads have, including:
+  * LOTS of photos
+  * Map location
+  * Street view
+  * Booking calendar 
+  * Description from owner
+  * Amenities that come with this pad.
 ### List
 List a pad, no bloody apartments please!
-### Book
-Book a pad!
 ### Manage
 Manage your bookings
 ### Rate
